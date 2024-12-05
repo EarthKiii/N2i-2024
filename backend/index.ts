@@ -1,7 +1,11 @@
 import express from "express";
 import bodyParser from "body-parser";
-import gameRoutes from "./src/routes/gameRoutes.js"; // on met .js parce que ça marche que comme ça
 import sqlite3 from "sqlite3";
+
+// Importation routes API
+import gamesRoutes from "./src/routes/gamesRoutes.js"; // on met .js parce que ça marche que comme ça
+import scoresRoutes from "./src/routes/scoresRoutes.js";
+import pantheonRoutes from "./src/routes/pantheonRoutes.js";
 
 const db = new sqlite3.Database('./src/database/database.db');
 const app = express();
@@ -20,7 +24,9 @@ app.get("/", (_req, res) => {
     });
 });
 
-app.use("/games", gameRoutes);
+app.use("/sherlock/games", gamesRoutes);
+app.use("/sherlock/scores", scoresRoutes);
+app.use("/sherlock/pantheon", pantheonRoutes);
 
 const PORT = 3000;
 app.listen(PORT, () => {
