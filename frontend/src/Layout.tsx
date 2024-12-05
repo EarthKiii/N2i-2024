@@ -11,6 +11,9 @@ const Layout = () => {
           <li>
             <Link to="/credits">Blogs</Link>
           </li>
+          <li>
+            <Link to="/pantheon">Pantheon</Link>
+          </li>
         </ul>
       </nav>
 
