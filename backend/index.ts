@@ -1,6 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
-import DataRoutes from "./routes/dataRoutes";
+import DataRoutes from "./src/routes/dataRoutes.js";
 
 const app = express();
 app.use(bodyParser.json());
