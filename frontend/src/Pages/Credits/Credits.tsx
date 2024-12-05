@@ -1,12 +1,14 @@
 import CreditName from "../../Components/CreditName/CreditName";
+import './Credits.css'
 
 const Credits = () => {
   return (
-    <div>
-      <CreditName firstName="Manus" lastName="Dyslexius"/>
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
+    <div className="credits">
+      <CreditName firstName="Emmanuel" lastName="Bouldoires"/>
+      <CreditName firstName="Ivan" lastName="Bortnik"/>
+      <CreditName firstName="Dorian" lastName="Duprat"/>
+      <CreditName firstName="Alexis" lastName="Piekarz"/>
+      <CreditName firstName="Jonas" lastName="Charrier"/>
     </div>
   )
 };
