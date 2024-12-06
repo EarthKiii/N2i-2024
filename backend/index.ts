@@ -11,8 +11,13 @@ import cors from "cors";
 
 const app = express();
 
-app.use(cors());
-
+const corsOptions = {
+    origin: "*", // Autorise toutes les origines. Changez par une liste spécifique pour plus de sécurité.
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    allowedHeaders: "Content-Type, Authorization",
+  };
+  
+  app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
 
