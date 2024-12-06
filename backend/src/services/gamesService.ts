@@ -11,11 +11,11 @@ export class GamesService {
         return this.gameRepository.getAllGames();
     }
 
-    public async postGame(): Promise<number> {
-        return this.gameRepository.postGame();
+    public async postGame(gameId: number): Promise<number> {
+        return this.gameRepository.postGame(gameId);
     }
 
-    public async updateGame(gameId: number): Promise<number> {
-        return this.gameRepository.updateGame(gameId);
+    public async updateGame(gameId: number, gameTime: number): Promise<number> {
+        return this.gameRepository.updateGame(gameId, gameTime);
     }
 }
