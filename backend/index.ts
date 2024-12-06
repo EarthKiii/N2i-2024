@@ -13,11 +13,11 @@ const app = express();
 app.use(bodyParser.json());
 
 
-app.use("/sherlock/connections", connectionRoutes);
-app.use("/sherlock/games", gamesRoutes);
-app.use("/sherlock/pantheon", pantheonRoutes);
-//app.use("/sherlock/read-times", readTimesRoutes);
-app.use("/sherlock/scores", scoresRoutes);
+app.use("/sherlock", connectionRoutes);
+app.use("/sherlock", gamesRoutes);
+app.use("/sherlock", pantheonRoutes);
+//app.use("/sherlock", readTimesRoutes);
+app.use("/sherlock", scoresRoutes);
 
 const PORT = 3000;
 app.listen(PORT, () => {

@@ -4,11 +4,11 @@ import { PantheonController } from '../controllers/pantheonController.js';
 const router = express.Router();
 const pantheonController = new PantheonController();
 
-router.get('/', async (req, res) => {
+router.get('/pantheon', async (req, res) => {
     await pantheonController.getPlayers(req, res);
 });
 
-router.post('/', async (req, res) => {
+router.post('/pantheon', async (req, res) => {
     await pantheonController.postPlayer(req, res);
 });
 
