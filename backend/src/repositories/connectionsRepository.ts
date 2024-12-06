@@ -22,13 +22,13 @@ export class ConnectionsRepository {
     public async getPageConnections(pageId: string): Promise<{ pageId: string, numberOfConnections: number }> {
         const result = await (await db).get('SELECT page_id, COUNT(page_id) AS number_of_connections FROM page_connections WHERE pageId = ?', pageId);
         return {
-            pageId: result?.pageId || 0,
+            pageId: result?.page_id || 0,
             numberOfConnections: result?.number_of_connections || 0
         }
     }
 
-    public async postConnection(device_type: string, screen_width: number, screen_height: number, connection_time: Date) {
-        const result = await (await db).run('INSERT INTO connections (device_type, screen_width, screen_height, connection_time) VALUES (?, ?, ?, ?)', device_type, screen_width, screen_height, connection_time);
+    public async postConnection(deviceType: string, screenWidth: number, screenHeight: number, connectionTime: Date) {
+        const result = await (await db).run('INSERT INTO connections (device_type, screen_width, screen_height, connection_time) VALUES (?, ?, ?, ?)', deviceType, screenWidth, screenHeight, connectionTime);
         return result.lastID || 0;
     }
 
