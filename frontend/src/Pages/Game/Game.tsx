@@ -21,6 +21,7 @@ import cardIntestines from "../../assets/cards/card_intestines.png";
 // import cardLyreco from "../../assets/cards/card_lyreco.png";
 
 import { useState } from "react";
+import ExplainationPopup from "../../Components/ExplainationPopup/ExplainationPopup";
 
 
 interface Card {
@@ -35,6 +36,8 @@ const Game = () => {
     const [cards, setCards] = useState<Card[]>([]);
     const [currentlySelectedCards, setCurrentlySelectedCards] = useState<number[]>([]);
     const [canSelectCard, setCanSelectCard] = useState<boolean>(true);
+    const [isExplainationVisible, setIsExplainationVisinble] = useState<boolean>(false);
+    const [explainedPair, setExplainedPair] = useState<number>(0);
 
     const cardsBody: Card[] = [
         { src: cardKetchup, pairIndex: 0, isFlipped: false, alt: "Card Ketchup" },
@@ -59,6 +62,18 @@ const Game = () => {
         { src: cardBiodiversity, pairIndex: 7, isFlipped: false, alt: "Card Biodiversity" },
         { src: cardEcosystem, pairIndex: 8, isFlipped: false, alt: "Card Ecosystem" },
     ];
+
+    const pairs: {title:string, text:string}[] = [
+        {title: "Transport", text: "Transport tout ça"},
+        {title: "Filtre", text: "Filtre tout ça"},
+        {title: "JSP", text: "JSP tout ça"},
+        {title: "Respiration", text: "Respiration tout ça"},
+        {title: "Protection", text: "Protection tout ça"},
+        {title: "Flux", text: "Flux sanguin tout ça"},
+        {title: "Temperature", text: "Temperature tout ça"},
+        {title: "Biodiversité", text: "Biodiversité tout ça"},
+        {title: "Ecosysteme", text: "Ecosysteme tout ça"}
+    ]
 
     const initGame = () => {
         console.log("== GAME START ==")
@@ -90,6 +105,9 @@ const Game = () => {
             setCanSelectCard(false);
             if (newlySelectedCards[0] == newlySelectedCards[1]) {
                 setCanSelectCard(true);
+
+                setExplainedPair(newlySelectedCards[0]);
+                setIsExplainationVisinble(true);
             } else {
                 setTimeout(() => {
                     const updatedCards = cards.map(c => {
@@ -128,6 +146,8 @@ const Game = () => {
         <div className="grid grid-cols-3 gap-4 z-10">
             {cards.map((card: Card, i: number) => <CardComponent image={card.src} key={i} onClick={() => {selectCard(card)}} isFlipped={card.isFlipped} />)}
         </div>
+
+        {isExplainationVisible && <ExplainationPopup title={pairs[explainedPair].title} text={pairs[explainedPair].text} onClose={() => setIsExplainationVisinble(false)} />}
     </div>
 }
 
