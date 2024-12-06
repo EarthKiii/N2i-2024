@@ -7,5 +7,15 @@ export class GameService {
         this.gameRepository = new GameRepository();
     }
 
-    // TODO implement getAllGames + postGame + updateGame
+    public async getAllGames(): Promise<number> {
+        return this.gameRepository.getAllGames();
+    }
+
+    public async postGame(): Promise<number> {
+        return this.gameRepository.postGame();
+    }
+
+    public async updateGame(gameId: number): Promise<number> {
+        return this.gameRepository.updateGame(gameId);
+    }
 }
