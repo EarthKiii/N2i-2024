@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { ConnectionsService } from '../services/connectionsService.js';
-export class ConnectionController {
+export class ConnectionsController {
     private readonly connectionsService: ConnectionsService;
 
     constructor() {

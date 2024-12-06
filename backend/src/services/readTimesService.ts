@@ -1,4 +1,4 @@
-import { ReadTimesRepository } from '../repositories/ReadTimesRepository';
+import { ReadTimesRepository } from '../repositories/ReadTimesRepository.js';
 
 export class ReadTimesService {
     private readonly readTimesRepository: ReadTimesRepository;
