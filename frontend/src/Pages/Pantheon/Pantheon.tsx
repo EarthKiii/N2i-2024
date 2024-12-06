@@ -10,7 +10,7 @@ interface Winner {
     date: EpochTimeStamp
 }
 
-const backHost = process.env.BACK_HOST || "http://localhost:3000"
+const backHost = process.env.VITE_BACK_HOST || "http://localhost:3000"
 
 const Pantheon = () => {
     const [winnersList, setWinnersList] = useState([] as Winner[]);
