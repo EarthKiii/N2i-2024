@@ -7,11 +7,11 @@ export class PantheonService {
         this.pantheonRepository = new PantheonRepository();
     }
 
-    public async getPlayers(): Promise<number> {
+    public async getPlayers(): Promise< { player_name: string, date: Date } > {
         return this.pantheonRepository.getPlayers();
     }
 
-    public async postPlayer(playerName: string, date: Date): Promise<number> {
+    public async postPlayer(playerName: string, date: Date) {
         return this.pantheonRepository.postPlayer(playerName, date);
     }
 }

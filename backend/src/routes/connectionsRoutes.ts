@@ -12,7 +12,7 @@ router.get('/connections/pages', async (req, res) => {
     await connectionsController.getAllPagesConnections(req, res);
 });
 
-router.get('/connections/pages/{pageId}', async (req, res) => {
+router.get('/connections/pages/:pageId', async (req, res) => {
     await connectionsController.getPageConnections(req, res);
 });
 

@@ -7,11 +7,12 @@ export class ScoresService {
         this.scoresRepository = new ScoresRepository();
     }
 
-    public async getScores(): Promise<number> {
-        return this.scoresRepository.getScores();
-    }
+    public async getScores(): Promise< { score: number, date: Date } > {
+            const scores = await this.scoresRepository.getScores();
+            return { score: scores.score, date: scores.share_at };
+        }
 
-    public async postScore(score: number): Promise<number> {
+    public async postScore(score: number) {
         return this.scoresRepository.postScore(score);
     }
 

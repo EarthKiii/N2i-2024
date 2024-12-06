@@ -17,16 +17,17 @@ export class GameController {
             res.status(200).json(games);
         } catch (error) {
             const err = error as Error;
-            res.status(500).json({ message: err.message });        }
+            res.status(500).json({ message: err.message });
+        }
     }
 
     /**
      * Crée une nouvelle partie.
      * @route POST /sherlock/games/
      */
-    public async postGame(_req: Request, res: Response): Promise<void> {
+    public async postGame(req: Request, res: Response): Promise<void> {
         try {
-            const game = await this.gamesService.postGame();
+            const game = await this.gamesService.postGame(req.body.gameId);
             res.status(201).json(game);
         } catch (error) {
             const err = error as Error;
@@ -38,12 +39,14 @@ export class GameController {
      * Met à jour une partie.
      * @route PUT /sherlock/games/{gameId}
      * @param gameId - L'identifiant de la partie.
+     * @param gameTime - Le temps de jeu.
      */
     public async updateGame(req: Request, res: Response): Promise<void> {
         try {
-            const gameId = req.params.gameId;
-            const game = await this.gamesService.updateGame(gameId);
-            res.status(200).json(game);
+            const gameId = parseInt(req.params.gameId, 10);
+            const gameTime = req.body.gameTime;
+            const game = await this.gamesService.updateGame(gameId, gameTime);
+            res.status(201).json(game);
         } catch (error) {
             const err = error as Error;
             res.status(500).json({ message: err.message });        

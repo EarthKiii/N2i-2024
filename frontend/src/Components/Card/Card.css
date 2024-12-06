@@ -1,0 +1,22 @@
+.flipping {
+    animation: flip 0.2s infinite;
+    animation-iteration-count: 1;
+}
+
+.test {
+    /* background-image: url('https://media.tenor.com/UsmnHQCv-7IAAAAe/saul-goodman.png'); */
+    background-size: cover;
+    background-position: center;
+}
+
+@keyframes flip {
+    0% { 
+        transform: scaleX(100%);
+    }
+    50% {
+        transform: scaleX(0%) scaleY(150%);
+    }
+    100% {
+        transform: scaleX(100%)
+    }
+}

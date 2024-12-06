@@ -24,10 +24,14 @@ export class PantheonController {
     /**
      * Ajoute un joueur au panthéon.
      * @route POST /sherlock/pantheon/
+     * @bodyParam playerName string
+     * @bodyParam date string
      */
-    public async postPlayer(_req: Request, res: Response): Promise<void> {
+    public async postPlayer(req: Request, res: Response): Promise<void> {
         try {
-            const game = await this.pantheonService.postPlayer();
+            const playerName = req.body.playerName;
+            const date = req.body.date;
+            const game = await this.pantheonService.postPlayer(playerName, date);
             res.status(201).json(game);
         } catch (error) {
             const err = error as Error;

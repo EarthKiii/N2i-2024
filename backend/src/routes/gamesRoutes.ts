@@ -12,7 +12,7 @@ router.post('/games', async (req, res) => {
     await gamesController.postGame(req, res);
 });
 
-router.put('/games/{gameId}', async (req, res) => {
+router.put('/games/:gameId', async (req, res) => {
     await gamesController.updateGame(req, res);
 });
 
