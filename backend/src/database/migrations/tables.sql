@@ -1,5 +1,5 @@
 -- Table pour enregistrer les temps de lecture des pop-ups
-CREATE TABLE IF NOT EXISTS popup_read_times (
+CREATE TABLE IF NOT EXISTS read_times (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     popup_id TEXT NOT NULL,
     read_time INTEGER NOT NULL
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS connections (
 );
 
 -- Table pour enregistrer les scores partagés
-CREATE TABLE IF NOT EXISTS score_shared (
+CREATE TABLE IF NOT EXISTS scores (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     score INTEGER NOT NULL,
     shared_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP

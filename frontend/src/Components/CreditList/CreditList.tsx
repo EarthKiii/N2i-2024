@@ -5,7 +5,8 @@ import { Person } from '../../Constants';
 
 const CreditList = ({setPerson}: {setPerson: Dispatch<SetStateAction<Person|null>>}) => {
     return (
-        <div className="creditList">
+        <div className="creditList" onMouseLeave={() => setPerson(null)}>
+            <h1>Crédits</h1>
             <CreditName person={{
                 firstName: "Emmanuel", 
                 lastName: "Bouldoires", 

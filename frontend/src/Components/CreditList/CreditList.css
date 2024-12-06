@@ -1,5 +1,6 @@
 .creditList {
     display: flex;
-    align-items: center;
+    align-items: end;
     flex-direction: column;
+    flex: 1;
 }

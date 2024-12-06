@@ -3,14 +3,32 @@
     align-items: center;
     flex-direction: column;
     position: relative;
+    padding: 2em;
+    justify-content: center;
+    flex: 2;
+    color: white;
 }
 
 .links {
+    flex: 1;
     display: flex;
 }
 
-.blobBg {
+.links > a {
+    flex: 1;
+}
+
+.person {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+h1 {
+    font-size: 3em;
+}
+
+.blobBg {
+    filter: brightness(1.2);
 }

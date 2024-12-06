@@ -5,11 +5,11 @@ import './Credits.css'
 import { Person } from "../../Constants";
 
 const Credits = () => {
-  const [currPerson, setCurrPerson] = useState({} as Person|null);
+  const [currPerson, setCurrPerson] = useState(null as Person|null);
   return (
     <div className="credits">
       <CreditList setPerson={setCurrPerson}/>
-      {currPerson != null ?<div className="personBlob"> <CreditBlob person={currPerson} /> </div>: null}
+      {currPerson ? (<CreditBlob person={currPerson} onHover={setCurrPerson} />) : <span style={{flex: 2}}></span>}
     </div>
   )
 };
