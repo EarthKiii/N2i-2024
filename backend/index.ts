@@ -7,8 +7,11 @@ import gamesRoutes from "./src/routes/gamesRoutes.js";
 import pantheonRoutes from "./src/routes/pantheonRoutes.js";
 import readTimesRoutes from "./src/routes/readTimesRoutes.js";
 import scoresRoutes from "./src/routes/scoresRoutes.js";
+import cors from "cors";
 
 const app = express();
+
+app.use(cors());
 
 app.use(bodyParser.json());
 
