@@ -3,9 +3,9 @@ import { db } from '../utils/database.js';
 export class GamesRepository {
     public async getAllGames(): Promise<{ gameId: number, gameTime: number }[]> {
         const result = await (await db).all('SELECT * FROM games');
-        return result.map((row: { gameId: number, gameTime: number }) => ({
-            gameId: row.gameId,
-            gameTime: row.gameTime
+        return result.map((row: { game_id: number, game_time: number }) => ({
+            gameId: row.game_id,
+            gameTime: row.game_time
         }));
     }
 
@@ -18,5 +18,4 @@ export class GamesRepository {
         const result = await (await db).run('UPDATE games SET game_time = ? WHERE game_id = ?', [gameTime, gameId]);
         return result.lastID;
     }
-
 }

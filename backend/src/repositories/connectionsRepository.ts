@@ -4,10 +4,10 @@ export class ConnectionsRepository {
     public async getAllConnections(): Promise<{ deviceType: string, screenWidth: number, screenHeight: number, connectionTime: Date }> {
         const result = await (await db).get('SELECT * FROM connections');
         return {
-            deviceType: result?.deviceType || "",
-            screenWidth: result?.screenWidth || 0,
-            screenHeight: result?.screenHeight || 0,
-            connectionTime: result?.connectionTime
+            deviceType: result?.device_type || "",
+            screenWidth: result?.screen_width || 0,
+            screenHeight: result?.screen_height || 0,
+            connectionTime: result?.connection_time
         }
     }
 
@@ -15,7 +15,7 @@ export class ConnectionsRepository {
         const result = await (await db).get('SELECT page_id, COUNT(page_id) AS number_of_connections FROM page_connections');
         return {
             pageId: result?.page_id,
-            numberOfConnections: result?.numberOfConnections
+            numberOfConnections: result?.number_of_connections
         }
     }
 
@@ -23,7 +23,7 @@ export class ConnectionsRepository {
         const result = await (await db).get('SELECT (pageId, COUNT(pageId)) AS number_of_connections FROM page_connections WHERE pageId = ?', pageId);
         return {
             pageId: result?.pageId || 0,
-            numberOfConnections: result?.numberOfConnections || 0
+            numberOfConnections: result?.number_of_connections || 0
         }
     }
 
