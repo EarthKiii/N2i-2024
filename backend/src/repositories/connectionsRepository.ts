@@ -1,22 +1,22 @@
 import { db } from '../utils/database.js';
 
 export class ConnectionsRepository {
-    public async getAllConnections(): Promise<{ deviceType: string, screenWidth: number, screenHeight: number, connectionTime: Date }> {
-        const result = await (await db).get('SELECT * FROM connections');
-        return {
-            deviceType: result?.device_type || "",
-            screenWidth: result?.screen_width || 0,
-            screenHeight: result?.screen_height || 0,
-            connectionTime: result?.connection_time
-        }
+    public async getAllConnections(): Promise<{ deviceType: string, screenWidth: number, screenHeight: number, connectionTime: Date }[] > {
+        const connections = await (await db).all('SELECT * FROM connections');
+        return connections.map(connection => ({
+            deviceType: connection.device_type,
+            screenWidth: connection.screen_width,
+            screenHeight: connection.screen_height,
+            connectionTime: connection.connection_time
+        }));
     }
 
-    public async getAllPagesConnections(): Promise<{ pageId: string, numberOfConnections: number }> {
-        const result = await (await db).get('SELECT page_id, COUNT(page_id) AS number_of_connections FROM page_connections');
-        return {
-            pageId: result?.page_id,
-            numberOfConnections: result?.number_of_connections
-        }
+    public async getAllPagesConnections(): Promise<{ pageId: string, numberOfConnections: number }[]> {
+        const result = await (await db).all('SELECT page_id, COUNT(page_id) AS number_of_connections FROM page_connections');
+        return result.map(pageConnection => ({
+            pageId: pageConnection.page_id,
+            numberOfConnections: pageConnection.number_of_connections
+        }));
     }
 
     public async getPageConnections(pageId: string): Promise<{ pageId: string, numberOfConnections: number }> {
