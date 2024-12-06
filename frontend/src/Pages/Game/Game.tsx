@@ -1,4 +1,6 @@
 import CardComponent from "../../Components/Card/Card";
+import ExplainationPopup from "../../Components/ExplainationPopup/ExplainationPopup";
+import WinPopup from "../../Components/WinPopup/WinPopup";
 
 import cardAlgae from "../../assets/cards/card_algae.png";
 import cardKetchup from "../../assets/cards/card_ketchup.png";
@@ -21,7 +23,6 @@ import cardIntestines from "../../assets/cards/card_intestines.png";
 // import cardLyreco from "../../assets/cards/card_lyreco.png";
 
 import { useState } from "react";
-import ExplainationPopup from "../../Components/ExplainationPopup/ExplainationPopup";
 
 
 interface Card {
@@ -38,6 +39,7 @@ const Game = () => {
     const [canSelectCard, setCanSelectCard] = useState<boolean>(true);
     const [isExplainationVisible, setIsExplainationVisinble] = useState<boolean>(false);
     const [explainedPair, setExplainedPair] = useState<number>(0);
+    const [isWinPopupVisible, setIsWinPopupVisible] = useState<boolean>(false);
 
     const cardsBody: Card[] = [
         { src: cardKetchup, pairIndex: 0, isFlipped: false, alt: "Card Ketchup" },
@@ -125,7 +127,7 @@ const Game = () => {
             setCurrentlySelectedCards([]);
 
             if (checkForWin()) {
-                console.log("GG mon salaud");
+                setIsWinPopupVisible(true);
             }
         }        
     }
@@ -148,6 +150,8 @@ const Game = () => {
         </div>
 
         {isExplainationVisible && <ExplainationPopup title={pairs[explainedPair].title} text={pairs[explainedPair].text} onClose={() => setIsExplainationVisinble(false)} />}
+
+        {isWinPopupVisible && <WinPopup />}
     </div>
 }
 
