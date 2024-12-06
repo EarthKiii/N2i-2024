@@ -9,7 +9,7 @@ interface Winner {
     date: EpochTimeStamp
 }
 
-const backHost = import.meta.env.VITE_FRONT_PORT|| "http://localhost:3000"
+const backHost = import.meta.env.VITE_BACK_HOST || "http://localhost:3000"
 
 const Pantheon = () => {
     const [winnersList, setWinnersList] = useState([] as Winner[]);
