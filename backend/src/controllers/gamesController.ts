@@ -41,7 +41,7 @@ export class GameController {
      */
     public async updateGame(req: Request, res: Response): Promise<void> {
         try {
-            const gameId = req.params.gameId;
+            const gameId = parseInt(req.params.gameId, 10);
             const gameTime = req.body.gameTime;
             const game = await this.gamesService.updateGame(gameId, gameTime);
             res.status(200).json(game);
