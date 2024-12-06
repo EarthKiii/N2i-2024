@@ -13,6 +13,11 @@
     max-height: unset !important;
     margin: 0 !important;
     padding: 0 !important;
+    display: flex;
+}
+
+#root > *:not(nav){
+   flex: 1;
 }
 
 .blob1 {

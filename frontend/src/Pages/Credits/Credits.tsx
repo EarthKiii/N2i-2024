@@ -1,14 +1,15 @@
-import CreditName from "../../Components/CreditName/CreditName";
+import { useState } from "react";
+import CreditBlob from "../../Components/CreditBlob/CreditBlob";
+import CreditList from "../../Components/CreditList/CreditList";
 import './Credits.css'
+import { Person } from "../../Constants";
 
 const Credits = () => {
+  const [currPerson, setCurrPerson] = useState({} as Person|null);
   return (
     <div className="credits">
-      <CreditName firstName="Emmanuel" lastName="Bouldoires"/>
-      <CreditName firstName="Ivan" lastName="Bortnik"/>
-      <CreditName firstName="Dorian" lastName="Duprat"/>
-      <CreditName firstName="Alexis" lastName="Piekarz"/>
-      <CreditName firstName="Jonas" lastName="Charrier"/>
+      <CreditList setPerson={setCurrPerson}/>
+      {currPerson != null ?<div className="personBlob"> <CreditBlob person={currPerson} /> </div>: null}
     </div>
   )
 };

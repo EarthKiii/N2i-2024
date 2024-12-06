@@ -1,5 +1,7 @@
 import { motion } from "framer-motion"
 import './CreditName.css'
+import { Dispatch, SetStateAction } from "react";
+import { Person } from "../../Constants";
 
 const nameVariants = {
     initial: {},
@@ -11,17 +13,19 @@ const letterVariants = {
     hover: { opacity: 1, display: "block" } 
 };
 
-const CreditName = ({firstName, lastName}: {firstName: string, lastName: string}) => {
+const CreditName = ({person, onHover}: {person: Person, onHover: Dispatch<SetStateAction<Person|null>>}) => {
     return (
         <motion.div 
             whileHover="hover"
+            onHoverStart={() => onHover(person)}
+            onHoverEnd={() => onHover(null)}
             initial="initial"
             className="creditName"
             variants={nameVariants}
         >
-            <p>{firstName}</p>&nbsp;
+            <p>{person.firstName}</p>&nbsp;
             {
-                lastName.split("").map((char, i) => (
+                person.lastName.split("").map((char, i) => (
                     <motion.span key={`${char}-${i}`} variants={letterVariants}>
                         {char}
                     </motion.span>
