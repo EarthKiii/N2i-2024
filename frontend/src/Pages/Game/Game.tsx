@@ -152,7 +152,6 @@ const Game = () => {
     }
 
     const checkForWin: () => boolean = () => {
-        return true;
         for (let i: number = 0; i < cards.length; i++) {
             if (!cards[i].isFlipped) {
                 return false;
