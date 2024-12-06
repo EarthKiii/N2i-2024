@@ -5,7 +5,7 @@ function convertDate(dateAdd: EpochTimeStamp) {
     return convertDate;
 }
 
-const CreditName = ({name, dateAdd}: {name: string, dateAdd: EpochTimeStamp}) => {
+const PantheonName = ({name, dateAdd}: {name: string, dateAdd: EpochTimeStamp}) => {
     return (
         <div 
             className="creditName"
@@ -16,4 +16,4 @@ const CreditName = ({name, dateAdd}: {name: string, dateAdd: EpochTimeStamp}) =>
     )
 }
 
-export default CreditName;
+export default PantheonName;
