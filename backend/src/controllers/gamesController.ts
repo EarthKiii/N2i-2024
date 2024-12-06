@@ -1,6 +1,5 @@
 import { Request, Response } from 'express';
-import { GameService } from '../services/gameServices.js';
-
+import { GameService } from '../services/gameService.js';
 export class GameController {
     private readonly gameService: GameService;
 
