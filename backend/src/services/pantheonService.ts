@@ -1,4 +1,4 @@
-import { PantheonRepository } from '../repositories/PantheonRepository.js';
+import { PantheonRepository } from '../repositories/pantheonRepository.js';
 
 export class PantheonService {
     private readonly pantheonRepository: PantheonRepository;
@@ -7,8 +7,12 @@ export class PantheonService {
         this.pantheonRepository = new PantheonRepository();
     }
 
-    public async getPlayers(): Promise< { player_name: string, date: Date }[] > {
-        return this.pantheonRepository.getPlayers();
+    public async getPlayers(): Promise< { playerName: string, date: Date }[] > {
+        const players = await this.pantheonRepository.getPlayers();
+        return players.map(player => ({
+            playerName: player.playerName,
+            date: player.date
+        }));
     }
 
     public async postPlayer(playerName: string, date: Date) {

@@ -17,7 +17,6 @@ const Layout = () => {
         <img src={blob4} className="blob4 reverse"/>
       </div>
       
-      
       <nav>
         <Link to="/" className="returnButton"><FontAwesomeIcon icon={faArrowLeftLong} color="black" /></Link>
       </nav>
