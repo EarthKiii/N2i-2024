@@ -10,11 +10,24 @@ import blob4 from './assets/blob4.svg'
 const Layout = () => {
   return (
     <>
-      <img src={blob1} className="blob1"/>
-      <img src={blob2} className="blob2"/>
-      <img src={blob3} className="blob3"/>
-      <img src={blob4} className="blob4"/>
+      <img src={blob1} className="blob1 rotating_div"/>
+      <img src={blob2} className="blob2 rotating_div"/>
+      <img src={blob3} className="blob3 reverse"/>
+      <img src={blob4} className="blob4 reverse"/>
+      
+      
       <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/credits">Blogs</Link>
+          </li>
+          <li>
+            <Link to="/pantheon">Pantheon</Link>
+          </li>
+        </ul>
         <Link to="/" className="returnButton"><FontAwesomeIcon icon={faArrowLeftLong} color="black" /></Link>
       </nav>
       <Outlet />
