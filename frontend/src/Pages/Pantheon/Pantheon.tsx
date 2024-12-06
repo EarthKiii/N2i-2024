@@ -28,28 +28,7 @@ const Pantheon = () => {
       
         fetchWinners();
       }, []);
-      const mockWinners = [
-        {
-            "playerName": "titusse",
-            "date": 1733442362
-          },
-          {
-            "playerName": "Obama2.0",
-            "date": 1733442362
-          },
-            {
-            "playerName": "EarthKii",
-            "date": 1733442362
-          },
-            {
-            "playerName": "Alaix",
-            "date": 1733442362
-          },
-            {
-            "playerName": "Dodo",
-            "date": 1733442362
-          },
-      ];
+
   return (
     <div className="pantheon">
         {winnersList.map(element => (
