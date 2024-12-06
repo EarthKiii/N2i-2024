@@ -2,7 +2,7 @@ import { db } from '../utils/database.js';
 
 export class GamesRepository {
     public async getAllGames(): Promise<{ game_id: number, game_time: number }[]> {
-        const result = await (await db).all('SELECT game_id, game_time FROM games');
+        const result = await (await db).all('SELECT * FROM games');
         return result.map((row: { game_id: number, game_time: number }) => ({
             game_id: row.game_id,
             game_time: row.game_time

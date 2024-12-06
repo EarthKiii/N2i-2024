@@ -2,7 +2,7 @@ import { db } from '../utils/database.js';
 
 export class ConnectionsRepository {
     public async getAllConnections(): Promise<{ device_type: string, screen_width: number, screen_height: number, connection_time: Date }> {
-        const result = await (await db).get('SELECT device_type, screen_width, screen_height, connection_time FROM connections');
+        const result = await (await db).get('SELECT * FROM connections');
         return {
             device_type: result?.device_type || "",
             screen_width: result?.screen_width || 0,

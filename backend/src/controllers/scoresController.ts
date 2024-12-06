@@ -11,7 +11,6 @@ export class ScoresController {
      * Récupère les scores.
      * @route GET /sherlock/scores/
      */
-
     public async getAllScores(_req: Request, res: Response): Promise<void> {
         try {
             const scores = await this.scoresService.getScores();

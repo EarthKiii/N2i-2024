@@ -13,7 +13,7 @@
 
 **Exemple de réponse JSON :**
 ```json
-{
+[
   {
     "gameId": 1,
     "gameTime": null,
@@ -27,7 +27,7 @@
     "gameTime": 20,
   }
   ...
-}
+]
 ```
 
 ### Ajouter une nouvelle partie : 
@@ -41,7 +41,7 @@
 **Exemple de structure JSON :**
 ```json
 {
-  "gameId": 1,
+  "gameId": 1
 }
 ```
 
@@ -56,7 +56,7 @@
 **Exemple de structure JSON :**
 ```json
 {
-  "gameTime": 13,
+  "gameTime": 13
 }
 ```
 
@@ -73,7 +73,7 @@
 
 **Exemple de réponse JSON :**
 ```json
-{
+[
   {
     "popupId": "flow-control",
     "averageReadTime": 50,
@@ -81,9 +81,9 @@
   {
     "popupId": "filtering",
     "averageReadTime": 40,
-  },
+  }
   ...
-}
+]
 ```
 
 ### Moyenne du temps de lecture d'une pop-up d'information particulière :
@@ -99,8 +99,8 @@
 ```json
 {
   "popupId": "cleaning",
-  "averageReadTime": 50,
-},
+  "averageReadTime": 50
+}
 ```
 
 ### Ajouter un temps de lecture de pop-up : 
@@ -116,7 +116,7 @@
 ```json
 {
   "popupId": "flux-control",
-  "readTime": 13,
+  "readTime": 13
 }
 ```
 
@@ -135,7 +135,7 @@
 
 **Exemple de réponse JSON :**
 ```json
-{
+[
   {
     "deviceType": "PC",
     "screenWidth": 1080,
@@ -153,9 +153,9 @@
     "screenWidth": 1080,
     "screenHeight": 720,
     "connectionTime": (Date)
-  },
+  }
   ...
-}
+]
 ```
 
 ### Ajouter une nouvelle connexion au site : 
@@ -176,7 +176,7 @@
   "screenWidth": 1080,
   "screenHeight": 720,
   "connectionTime": (Date)
-},
+}
 ```
 
 ## /sherlock/connections/pages
@@ -192,28 +192,28 @@
 
 **Exemple de réponse JSON :**
 ```json
-{
+[
   {
     "pageId": "home",
-    "numberOfConnections": 201,
+    "numberOfConnections": 201
   },
   {
     "pageId": "play",
-    "numberOfConnections": 172,
+    "numberOfConnections": 172
   },
   {
     "pageId": "collection",
-    "numberOfConnections": 70,
+    "numberOfConnections": 70
   },
   {
     "pageId": "pantheon",
-    "numberOfConnections": 38,
+    "numberOfConnections": 38
   },
   {
     "pageId": "credits",
-    "numberOfConnections": 3,
-  },
-}
+    "numberOfConnections": 3
+  }
+]
 ```
 
 ### Nombre de connexions à une page spécifique : 
@@ -229,7 +229,7 @@
 ```json
 {
   "pageId": "collection",
-  "numberOfConnections": 420,
+  "numberOfConnections": 420
 }
 ```
 
@@ -244,7 +244,7 @@
 **Exemple de structure JSON :**
 ```json
 {
-  "pageId": "collection",
+  "pageId": "collection"
 }
 ```
 
@@ -261,7 +261,7 @@
 
 **Exemple de réponse JSON :**
 ```json
-{
+[
   {
     "playerName": "titusse",
     "date": (Date)
@@ -281,8 +281,9 @@
     {
     "playerName": "Dodo",
     "date": (Date)
-  },
-}
+  }
+  ...
+]
 ```
 
 ### Ajouter un nouveau joueur au Panthéon : 
@@ -298,7 +299,7 @@
 ```json
 {
   "playerName": "Evan",
-  "date": (Date),
+  "date": (Date)
 }
 ```
 
@@ -315,7 +316,7 @@
 
 **Exemple de réponse JSON :**
 ```json
-{
+[
   {
     "score": 30,
     "sharedAt": (Date)
@@ -323,9 +324,9 @@
   {
     "score": 56,
     "sharedAt": (Date)
-  },
+  }
   ...
-}
+]
 ```
 
 ### Ajouter un nouveau partage de score : 
