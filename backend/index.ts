@@ -7,9 +7,17 @@ import gamesRoutes from "./src/routes/gamesRoutes.js";
 import pantheonRoutes from "./src/routes/pantheonRoutes.js";
 import readTimesRoutes from "./src/routes/readTimesRoutes.js";
 import scoresRoutes from "./src/routes/scoresRoutes.js";
+import cors from "cors";
 
 const app = express();
 
+const corsOptions = {
+    origin: "*", // Autorise toutes les origines. Changez par une liste spécifique pour plus de sécurité.
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    allowedHeaders: "Content-Type, Authorization",
+  };
+  
+  app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
 
