@@ -37,7 +37,7 @@ export class ConnectionsController {
 
     /**
      * Crée une nouvelle connexion de page spécifique.
-     * @route GET /sherlock/connections/pages/{pageId}
+     * @route GET /sherlock/connections/pages/:pageId
     */
    public async getPageConnections(req: Request, res: Response): Promise<void> {
     try {

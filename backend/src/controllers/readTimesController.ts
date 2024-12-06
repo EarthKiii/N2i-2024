@@ -24,7 +24,7 @@ export class ReadTimesController {
 
     /**
      * Récupère le temps de lecture moyen d'une pop-up d'information.
-     * @route GET /sherlock/head-times/{popupId}
+     * @route GET /sherlock/head-times/:popupId
      */
     public async getReadTime(req: Request, res: Response): Promise<void> {
         try {

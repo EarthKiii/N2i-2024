@@ -20,9 +20,9 @@ export class ConnectionsRepository {
     }
 
     public async getPageConnections(pageId: string): Promise<{ pageId: string, numberOfConnections: number }> {
-        const result = await (await db).get('SELECT page_id, COUNT(page_id) AS number_of_connections FROM page_connections WHERE pageId = ?', pageId);
+        const result = await (await db).get('SELECT page_id, COUNT(page_id) AS number_of_connections FROM page_connections WHERE page_id = ?', pageId);
         return {
-            pageId: result?.page_id || 0,
+            pageId: result?.page_id || "",
             numberOfConnections: result?.number_of_connections || 0
         }
     }
