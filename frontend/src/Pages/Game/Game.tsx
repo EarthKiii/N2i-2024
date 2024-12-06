@@ -28,7 +28,7 @@ import { useEffect, useState } from "react";
 interface Card {
     src: string,
     pairIndex: number,
-    alt: string,
+    id: string,
     isFlipped: boolean
 }
 
@@ -46,30 +46,29 @@ const Game = () => {
     }, []);
 
     const cardsBody: Card[] = [
-        { src: cardKetchup, pairIndex: 0, isFlipped: false, alt: "Card Ketchup" },
-        { src: cardKidneys, pairIndex: 1, isFlipped: false, alt: "Card Kidneys" },
-        { src: cardBloodCells, pairIndex: 2, isFlipped: false, alt: "Card Blood Cells" },
-        { src: cardLungs, pairIndex: 3, isFlipped: false, alt: "Card Lungs" },
-        { src: cardHair, pairIndex: 4, isFlipped: false, alt: "Card Hair" },
-        { src: cardHearth, pairIndex: 5, isFlipped: false, alt: "Card Hearth" },
-        { src: cardHumanTemp, pairIndex: 6, isFlipped: false, alt: "Card Human Temperature" },
-        { src: cardWhiteCell, pairIndex: 7, isFlipped: false, alt: "Card White Cell" },
-        { src: cardIntestines, pairIndex: 8, isFlipped: false, alt: "Card Intestines" },
-        { src: cardLyreco, pairIndex: 9, isFlipped: false, alt: "The Secret Card" },
+        { src: cardKetchup, pairIndex: 0, isFlipped: false, id: "card-ketchup" },
+        { src: cardKidneys, pairIndex: 1, isFlipped: false, id: "card-kidneys" },
+        { src: cardBloodCells, pairIndex: 2, isFlipped: false, id: "card-blood-cells" },
+        { src: cardLungs, pairIndex: 3, isFlipped: false, id: "card-lungs" },
+        { src: cardHair, pairIndex: 4, isFlipped: false, id: "card-hair" },
+        { src: cardHearth, pairIndex: 5, isFlipped: false, id: "card-hearth" },
+        { src: cardHumanTemp, pairIndex: 6, isFlipped: false, id: "card-human-temperature" },
+        { src: cardWhiteCell, pairIndex: 7, isFlipped: false, id: "card-white-cell" },
+        { src: cardIntestines, pairIndex: 8, isFlipped: false, id: "card-intestines" },
+        { src: cardLyreco, pairIndex: 9, isFlipped: false, id: "the-secret-card" },
     ];
 
     const cardsOcean: Card[] = [
-        { src: cardWhale, pairIndex: 0, isFlipped: false, alt: "Card Whale" },
-        { src: cardAlgae, pairIndex: 1, isFlipped: false, alt: "Card Algae" },
-        { src: cardPlankton, pairIndex: 2, isFlipped: false, alt: "Card Plankton" },
-        { src: cardPhotosynthesis, pairIndex: 3, isFlipped: false, alt: "Card Photosynthesis" },
-        { src: cardCoral, pairIndex: 4, isFlipped: false, alt: "Card Coral" },
-        { src: cardFlow, pairIndex: 5, isFlipped: false, alt: "Card Flow" },
-        { src: cardSeaTemp, pairIndex: 6, isFlipped: false, alt: "Card Sea Temperature" },
-        { src: cardBiodiversity, pairIndex: 7, isFlipped: false, alt: "Card Biodiversity" },
-        { src: cardEcosystem, pairIndex: 8, isFlipped: false, alt: "Card Ecosystem" },
-        { src: cardLyreco, pairIndex: 9, isFlipped: false, alt: "The Secret Card" },
-
+        { src: cardWhale, pairIndex: 0, isFlipped: false, id: "card-whale" },
+        { src: cardAlgae, pairIndex: 1, isFlipped: false, id: "card-algae" },
+        { src: cardPlankton, pairIndex: 2, isFlipped: false, id: "card-plankton" },
+        { src: cardPhotosynthesis, pairIndex: 3, isFlipped: false, id: "card-photosynthesis" },
+        { src: cardCoral, pairIndex: 4, isFlipped: false, id: "card-coral" },
+        { src: cardFlow, pairIndex: 5, isFlipped: false, id: "card-flow" },
+        { src: cardSeaTemp, pairIndex: 6, isFlipped: false, id: "card-sea-temperature" },
+        { src: cardBiodiversity, pairIndex: 7, isFlipped: false, id: "card-biodiversity" },
+        { src: cardEcosystem, pairIndex: 8, isFlipped: false, id: "card-ecosystem" },
+        { src: cardLyreco, pairIndex: 9, isFlipped: false, id: "the-secret-card" },
     ];
 
     const pairs: {title:string, text:string}[] = [
@@ -135,11 +134,26 @@ const Game = () => {
 
             if (checkForWin()) {
                 setIsWinPopupVisible(true);
+
+                let savedCards: string[] = JSON.parse(localStorage.getItem('saved-cards') || '[]');
+                let usedCards = cards.map(c => c.id);
+                
+                usedCards.forEach(c => {
+                    if (!savedCards.includes(c)) {
+                        savedCards.push(c);
+                    }
+                });
+                
+                localStorage.setItem('saved-cards', JSON.stringify(savedCards));
+
+
+                console.log(cards.map(a => a.id));
             }
         }        
     }
 
     const checkForWin: () => boolean = () => {
+        return true;
         for (let i: number = 0; i < cards.length; i++) {
             if (!cards[i].isFlipped) {
                 return false;
