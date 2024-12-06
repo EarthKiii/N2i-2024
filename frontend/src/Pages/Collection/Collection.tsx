@@ -18,6 +18,8 @@ import cardWhale from "../../assets/cards/card_whale.webp";
 import cardHumanTemp from "../../assets/cards/card_human_temp.webp";
 import cardWhiteCell from "../../assets/cards/card_white_cell.webp";
 import cardIntestines from "../../assets/cards/card_intestines.webp";
+import { useState } from 'react';
+import { Link } from 'react-router';
 
 interface Card {
     src: string,
@@ -47,6 +49,8 @@ const Collection = () => {
         { src: cardEcosystem, locked: true, id: "card-ecosystem" },
     ];
 
+    const [isCollectionFull, setIsCollectionFull] = useState<boolean>(false)
+
     let savedCards: string[] = JSON.parse(localStorage.getItem('saved-cards') || '[]');
     if (savedCards) {
         cards.forEach(c => {
@@ -56,12 +60,30 @@ const Collection = () => {
         })
     }
 
+    const checkCollection = (): boolean => {
+        for (const c of cards) {
+            console.log(c);
+            if (c.locked === true) {
+                return false;
+            }
+        }
+        
+        console.log("All cards are unlocked");
+        return true;
+    };
+
+    if (checkCollection() && !isCollectionFull) {
+        setIsCollectionFull(true);
+    }
+
     return <div className="h-screen w-screen flex flex-col items-center p-8">
         <div className="text-4xl font-bold mb-16 trans">Collection</div>
 
         <div className="flex flex-wrap justify-center gap-4 overflow-y-scroll">
-            {cards.map((card: Card) => <div className={`size-44 bg-cover bg-center ${card.locked ? 'opacity-40' : ''}`} style={{ backgroundImage: `url(${card.src})` }} />)}
+            {cards.map((card: Card) => <div className={`shadow-lg size-44 bg-cover bg-center ${card.locked ? 'opacity-40' : ''}`} style={{ backgroundImage: `url(${card.src})` }} />)}
         </div>
+
+        {isCollectionFull && <Link to="/win"><div className="px-12 py-4 my-4 bg-blue-600 text-white text-center rounded-full hover:bg-blue-400 hover:scale-110 transition-all hover:shadow-mg">Unlock</div></Link>}
     </div>
 }
 

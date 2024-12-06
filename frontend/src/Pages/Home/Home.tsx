@@ -20,7 +20,7 @@ const Home = () => {
 
         <div className="flex justify-center gap-4 w-2/3">
             <div className="bg-blue-600 text-xl text-white py-3 px-12 flex-1 w-0 rounded-full text-center transition-all hover:bg-blue-400 hover:shadow-lg hover:scale-110"><Link to="/credits">Crédits</Link></div>
-            <div className="bg-blue-600 text-xl text-white py-3 px-12 flex-1 w-0 rounded-full text-center transition-all hover:bg-blue-400 hover:shadow-lg hover:scale-110"><Link to="/404">Collection</Link></div>
+            <div className="bg-blue-600 text-xl text-white py-3 px-12 flex-1 w-0 rounded-full text-center transition-all hover:bg-blue-400 hover:shadow-lg hover:scale-110"><Link to="/collection">Collection</Link></div>
             <div className="bg-blue-600 text-xl text-white py-3 px-12 flex-1 w-0 rounded-full text-center transition-all hover:bg-blue-400 hover:shadow-lg hover:scale-110"><Link to="/pantheon">Panthéon</Link></div>
         </div>
         <audio ref={podcast1Elm} src={podcast1}></audio>
