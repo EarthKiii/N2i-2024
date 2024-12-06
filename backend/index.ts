@@ -8,6 +8,7 @@ import pantheonRoutes from "./src/routes/pantheonRoutes.js";
 import readTimesRoutes from "./src/routes/readTimesRoutes.js";
 import scoresRoutes from "./src/routes/scoresRoutes.js";
 import cors from "cors";
+import 'dotenv/config'
 
 const app = express();
 
@@ -31,7 +32,7 @@ app.use("/", (_req: express.Request, res: express.Response) => {
     res.status(200).send("Welcome to the Sherlock API");
 });
 
-const PORT = 3000;
+const PORT = Number(process.env.BACK_PORT || 3000);
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });

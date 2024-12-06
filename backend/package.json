@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "tsc -w & babel src --out-dir dist/src --ignore '*.ts' --no-copy-ignored --copy-files --watch & node dist/index.js",
-    "build": "tsc && babel src --out-dir dist/src --ignore '*.ts' --no-copy-ignored --copy-files"
+    "build": "tsc && babel src --out-dir dist/src --ignore '*.ts' --no-copy-ignored --copy-files",
+    "prod": "node dist/index.js"
   },
   "devDependencies": {
     "@babel/core": "^7.26.0",
@@ -13,12 +14,14 @@
     "@babel/preset-typescript": "^7.26.0",
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
+    "@types/node": "^22.10.1",
     "karma-babel-preprocessor": "^8.0.2",
     "typescript": "~5.6.2"
   },
   "dependencies": {
     "@babel/cli": "^7.26.4",
     "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
     "express": "^4.21.1",
     "sqlite": "^5.1.1",
     "sqlite3": "^5.1.7"

@@ -2,6 +2,7 @@ import PantheonName from '../../Components/PantheonName/PantheonName';
 import { useState, useEffect } from 'react';
 import axios, { AxiosResponse } from 'axios';
 import './Pantheon.css'
+import 'dotenv/config'
 
 interface Winner {
     id: number;
@@ -9,12 +10,14 @@ interface Winner {
     date: EpochTimeStamp
 }
 
+const backHost = process.env.BACK_HOST || "http://localhost:3000"
+
 const Pantheon = () => {
     const [winnersList, setWinnersList] = useState([] as Winner[]);
     useEffect(() => {
         async function fetchWinners() {
             try {
-              const response: AxiosResponse<Winner[]> = await axios.get('http://localhost:3000/sherlock/pantheon');
+              const response: AxiosResponse<Winner[]> = await axios.get(`${backHost}/sherlock/pantheon`);
               let data: Winner[] = await response.data;
               setWinnersList(data);
             } catch (error) {
