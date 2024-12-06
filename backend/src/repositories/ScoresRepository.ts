@@ -1,11 +1,11 @@
 import { db } from '../utils/database.js';
 
 export class ScoresRepository {
-    public async getScores(): Promise<{ score: number, shared_at: Date }[]> {
+    public async getScores(): Promise<{ score: number, sharedAt: Date }[]> {
         const result = await (await db).all('SELECT * FROM scores');
-        return result.map((row: { score: number, shared_at: Date }) => ({
+        return result.map((row: { score: number, sharedAt: Date }) => ({
             score: row.score,
-            shared_at: row.shared_at
+            sharedAt: row.sharedAt
         }));
     }
 

@@ -1,4 +1,4 @@
-import { GamesRepository } from '../repositories/GamesRepository.js';
+import { GamesRepository } from '../repositories/gamesRepository.js';
 
 export class GamesService {
     private readonly gamesRepository: GamesRepository;
@@ -7,11 +7,11 @@ export class GamesService {
         this.gamesRepository = new GamesRepository();
     }
 
-    public async getAllGames(): Promise< { game_id: number, game_time: number }[] > {
+    public async getAllGames(): Promise< { gameId: number, gameTime: number }[] > {
         const games = await this.gamesRepository.getAllGames();
         return games.map(game => ({
-            game_id: game.gameId,
-            game_time: game.gameTime
+            gameId: game.gameId,
+            gameTime: game.gameTime
         }));
     }
 

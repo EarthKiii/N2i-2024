@@ -1,12 +1,12 @@
 import { db } from '../utils/database.js';
 
 export class ReadTimesRepository {
-    public async getAllReadTimes(): Promise<{ popupId: string, averageReadTime: number }> {
+    public async getAllReadTimes(): Promise<{ popupId: string, averageReadTime: number }[]> {
         const result = await (await db).get('SELECT popup_id, AVG(read_time) AS average_read_time FROM read_times');
-        return {
-            popupId: result?.popupId || "",
-            averageReadTime: result?.averageReadTime || 0
-        }
+        return result.map((row: { popupId: string, averageReadTime: number }) => ({
+            popupId: row.popupId,
+            averageReadTime: row.averageReadTime
+        }));
     }
 
     public async getReadTime(popupId: string): Promise<{ popupId: string, averageReadTime: number }> {
