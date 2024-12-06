@@ -5,13 +5,13 @@ function convertDate(dateAdd: EpochTimeStamp) {
     return convertDate;
 }
 
-const PantheonName = ({name, dateAdd}: {name: string, dateAdd: EpochTimeStamp}) => {
+const PantheonName = ({name, dateAdd}: {name: string, dateAdd: Date}) => {
     return (
         <div 
             className="creditName"
         >
             <p>{name}</p>&nbsp;
-            <p>{convertDate(dateAdd).toLocaleDateString()}</p>
+            <p>{dateAdd.toDateString()}</p>
         </div>
     )
 }
