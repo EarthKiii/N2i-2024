@@ -14,13 +14,13 @@ const Home = () => {
             <img className="size-64 w-auto" src="../src/assets/home_logo.png" alt="logo" />
             <h1 className="text-8xl text-blue-600 mb-4 mt-16 flex-grow-0">Mem'Ocean</h1>
 
-            <Link to="/game"><div className="bg-blue-600 text-4xl text-white py-3 px-16 rounded-full font-bold tracking-wide transition-all hover:bg-blue-400 hover:shadow-lg hover:scale-110">COMMENCER</div></Link>
+            <div className="bg-blue-600 text-4xl text-white py-3 px-16 rounded-full font-bold tracking-wide transition-all hover:bg-blue-400 hover:shadow-lg hover:scale-110"><Link to="/game">COMMENCER</Link></div>
         </div>
 
         <div className="flex justify-center gap-4 w-2/3">
-            <Link to="/credit"><div className="bg-blue-600 text-xl text-white py-3 px-12 flex-1 w-0 rounded-full text-center transition-all hover:bg-blue-400 hover:shadow-lg hover:scale-110">Crédits</div></Link>
-            <Link to="/404"><div className="bg-blue-600 text-xl text-white py-3 px-12 flex-1 w-0 rounded-full text-center transition-all hover:bg-blue-400 hover:shadow-lg hover:scale-110">Collection</div></Link>
-            <Link to="/pantheon"><div className="bg-blue-600 text-xl text-white py-3 px-12 flex-1 w-0 rounded-full text-center transition-all hover:bg-blue-400 hover:shadow-lg hover:scale-110">Panthéon</div></Link>
+            <div className="bg-blue-600 text-xl text-white py-3 px-12 flex-1 w-0 rounded-full text-center transition-all hover:bg-blue-400 hover:shadow-lg hover:scale-110"><Link to="/credits">Crédits</Link></div>
+            <div className="bg-blue-600 text-xl text-white py-3 px-12 flex-1 w-0 rounded-full text-center transition-all hover:bg-blue-400 hover:shadow-lg hover:scale-110"><Link to="/404">Collection</Link></div>
+            <div className="bg-blue-600 text-xl text-white py-3 px-12 flex-1 w-0 rounded-full text-center transition-all hover:bg-blue-400 hover:shadow-lg hover:scale-110"><Link to="/pantheon">Panthéon</Link></div>
         </div>
         <audio ref={podcast1Elm} src={podcast1}></audio>
         <button onClick={() => {
