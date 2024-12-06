@@ -20,9 +20,9 @@ import cardWhale from "../../assets/cards/card_whale.png";
 import cardHumanTemp from "../../assets/cards/card_human_temp.png";
 import cardWhiteCell from "../../assets/cards/card_white_cell.png";
 import cardIntestines from "../../assets/cards/card_intestines.png";
-// import cardLyreco from "../../assets/cards/card_lyreco.png";
+import cardLyreco from "../../assets/cards/card_lyreco.png";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 interface Card {
@@ -41,6 +41,10 @@ const Game = () => {
     const [explainedPair, setExplainedPair] = useState<number>(0);
     const [isWinPopupVisible, setIsWinPopupVisible] = useState<boolean>(false);
 
+    useEffect(() => {
+        initGame();
+    }, []);
+
     const cardsBody: Card[] = [
         { src: cardKetchup, pairIndex: 0, isFlipped: false, alt: "Card Ketchup" },
         { src: cardKidneys, pairIndex: 1, isFlipped: false, alt: "Card Kidneys" },
@@ -51,6 +55,7 @@ const Game = () => {
         { src: cardHumanTemp, pairIndex: 6, isFlipped: false, alt: "Card Human Temperature" },
         { src: cardWhiteCell, pairIndex: 7, isFlipped: false, alt: "Card White Cell" },
         { src: cardIntestines, pairIndex: 8, isFlipped: false, alt: "Card Intestines" },
+        { src: cardLyreco, pairIndex: 9, isFlipped: false, alt: "The Secret Card" },
     ];
 
     const cardsOcean: Card[] = [
@@ -63,6 +68,8 @@ const Game = () => {
         { src: cardSeaTemp, pairIndex: 6, isFlipped: false, alt: "Card Sea Temperature" },
         { src: cardBiodiversity, pairIndex: 7, isFlipped: false, alt: "Card Biodiversity" },
         { src: cardEcosystem, pairIndex: 8, isFlipped: false, alt: "Card Ecosystem" },
+        { src: cardLyreco, pairIndex: 9, isFlipped: false, alt: "The Secret Card" },
+
     ];
 
     const pairs: {title:string, text:string}[] = [
@@ -74,12 +81,12 @@ const Game = () => {
         {title: "Flux", text: "Flux sanguin tout ça"},
         {title: "Temperature", text: "Temperature tout ça"},
         {title: "Biodiversité", text: "Biodiversité tout ça"},
-        {title: "Ecosysteme", text: "Ecosysteme tout ça"}
+        {title: "Ecosysteme", text: "Ecosysteme tout ça"},
+        {title: "Carte secrete", text: "Mon dieu, vive lyreco, prenez donc ce stylo"},
     ]
 
     const initGame = () => {
-        console.log("== GAME START ==")
-        let selectedIndexes: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8].sort((_a: number, _b: number) => 0.5 - Math.random()).slice(0, 6);
+        let selectedIndexes: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].sort((_a: number, _b: number) => 0.5 - Math.random()).slice(0, 6);
         
         let selectedCards: Card[] = [];
 
@@ -143,7 +150,7 @@ const Game = () => {
 
 
     return <div className="flex justify-center items-center h-screen w-screen">
-        <button onClick={initGame}>start game</button>
+        {/* <button onClick={initGame}>start game</button> */}
 
         <div className="grid grid-cols-3 gap-4 z-10">
             {cards.map((card: Card, i: number) => <CardComponent image={card.src} key={i} onClick={() => {selectCard(card)}} isFlipped={card.isFlipped} />)}

@@ -140,19 +140,19 @@
     "deviceType": "PC",
     "screenWidth": 1080,
     "screenHeight": 720,
-    "connectionTime": (Date)
+    "connectionTime": "2024-12-06 04:22:31"
   },
   {
     "deviceType": "iOS",
     "screenWidth": 1080,
     "screenHeight": 720,
-    "connectionTime": (Date)
+    "connectionTime": "2024-12-06 04:22:31"
   },
   {
     "deviceType": "Android",
     "screenWidth": 1080,
     "screenHeight": 720,
-    "connectionTime": (Date)
+    "connectionTime": "2024-12-06 04:22:31"
   }
   ...
 ]
@@ -167,15 +167,13 @@
 | deviceType | string | Type d'appareil |
 | screenWidth | int | Longueur de l'écran en pixels |
 | screenHeight | int | Hauteur de l'écran en pixels |
-| connectionTime | date | Heure de la connexion |
 
 **Exemple de structure JSON :**
 ```json
 {
   "deviceType": "PC",
   "screenWidth": 1080,
-  "screenHeight": 720,
-  "connectionTime": (Date)
+  "screenHeight": 720
 }
 ```
 
@@ -264,23 +262,23 @@
 [
   {
     "playerName": "titusse",
-    "date": (Date)
+    "date": "2024-12-06 04:22:31"
   },
   {
     "playerName": "Obama2.0",
-    "date": (Date)
+    "date": "2024-12-06 04:22:31"
   },
     {
     "playerName": "EarthKii",
-    "date": (Date)
+    "date": "2024-12-06 04:22:31"
   },
     {
     "playerName": "Alaix",
-    "date": (Date)
+    "date": "2024-12-06 04:22:31"
   },
     {
     "playerName": "Dodo",
-    "date": (Date)
+    "date": "2024-12-06 04:22:31"
   }
   ...
 ]
@@ -293,13 +291,11 @@
 | Nom  | Type | Description |
 |:----|:----|:-----------|
 | playerName | int | Nom du joueur |
-| date | date | Date d'obtention du 100% |
 
 **Exemple de structure JSON :**
 ```json
 {
   "playerName": "Evan",
-  "date": (Date)
 }
 ```
 
@@ -319,11 +315,11 @@
 [
   {
     "score": 30,
-    "sharedAt": (Date)
+    "sharedAt": "2024-12-06 04:22:31"
   },
   {
     "score": 56,
-    "sharedAt": (Date)
+    "sharedAt": "2024-12-06 04:22:31"
   }
   ...
 ]
@@ -336,12 +332,10 @@
 | Nom  | Type | Description |
 |:----|:----|:-----------|
 | score | int | Valeur du score partagé |
-| sharedAt | date | Date du partage du score |
 
 **Exemple de structure JSON :**
 ```json
 {
   "score": 42,
-  "sharedAt": (Date)
 }
 ```
