@@ -2,17 +2,17 @@ import { db } from '../utils/database.js';
 
 export class GamesRepository {
     public async getAllGames(): Promise<number> {
-        const result = await db.get('SELECT COUNT(*) FROM games');
+        const result = await db.get('SELECT game_id, game_time FROM games');
         return result?.count || 0;
     }
 
-    public async postGame(): Promise<number> {
-        const result = await db.run('INSERT INTO games DEFAULT VALUES');
+    public async postGame(gameId: number): Promise<number> {
+        const result = await db.run('INSERT INTO games (game_id) VALUES (?)', [gameId]);
         return result.lastID;
     }
 
-    public async updateGame(gameId: number): Promise<number> {
-        const result = await db.run('UPDATE games SET updated_at = CURRENT_TIMESTAMP WHERE id = ?', gameId);
+    public async updateGame(gameId: number, gameTime: number): Promise<number> {
+        const result = await db.run('UPDATE games SET game_time = ? WHERE game_id = ?', [gameTime, gameId]);
         return result.changes;
     }
 
