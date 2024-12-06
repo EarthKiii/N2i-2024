@@ -2,7 +2,6 @@ import PantheonName from '../../Components/PantheonName/PantheonName';
 import { useState, useEffect } from 'react';
 import axios, { AxiosResponse } from 'axios';
 import './Pantheon.css'
-import 'dotenv/config'
 
 interface Winner {
     id: number;
@@ -10,7 +9,7 @@ interface Winner {
     date: EpochTimeStamp
 }
 
-const backHost = process.env.VITE_BACK_HOST || "http://localhost:3000"
+const backHost = import.meta.env.VITE_FRONT_PORT|| "http://localhost:3000"
 
 const Pantheon = () => {
     const [winnersList, setWinnersList] = useState([] as Winner[]);
