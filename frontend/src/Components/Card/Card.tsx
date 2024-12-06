@@ -9,7 +9,6 @@ const Card = ({image, onClick, isFlipped}: {image: Object, onClick: Function, is
 
     const handleClick = () => {
         setIsFlipping(true);
-        // setTimeout(() => {setIsFlipped(!isFlipped)}, 100);
         onClick();
     }
 
