@@ -4,7 +4,7 @@
 
 ### Moyenne du temps de lecture pour chaque pop-up d'information en partie :
 **Méthode :** `GET`  
-**Route :**  `/sherlock/read-time`  
+**Route :**  `/sherlock/read-times`  
 **Donnée(s) retournée(s)** :  
 | Nom  | Type | Description |
 |:----|:----|:-----------|
@@ -28,7 +28,7 @@
 
 ### Moyenne du temps de lecture d'une pop-up d'information particulière en partie :
 **Méthode :** `GET`  
-**Route :**  `/sherlock/read-time/{popupId}`  
+**Route :**  `/sherlock/read-times/{popupId}`  
 **Donnée(s) retournée(s)** :  
 | Nom  | Type | Description |
 |:----|:----|:-----------|
@@ -45,7 +45,7 @@
 
 ### Nombre de connexions à toutes les pages confondues : 
 **Méthode :** `GET`  
-**Route :**  `/sherlock/pages-connections`  
+**Route :**  `/sherlock/connections/pages`  
 **Donnée(s) retournée(s)** :  
 | Nom  | Type | Description |
 |:----|:----|:-----------|
@@ -80,7 +80,7 @@
 
 ### Nombre de connexions à une page spécifique : 
 **Méthode :** `GET`  
-**Route :**  `/sherlock/pages-connections/{pageId}`  
+**Route :**  `/sherlock/connections/pages/{pageId}`  
 **Donnée(s) retournée(s)** :  
 | Nom  | Type | Description |
 |:----|:----|:-----------|
@@ -158,7 +158,7 @@
 }
 ```
 
-### Informations sur les connexions au site : 
+### Récupérer toutes les informations de connexions au site : 
 **Méthode :** `GET`  
 **Route :**  `/sherlock/connections`  
 **Donnée(s) retournée(s)** :  
@@ -190,18 +190,27 @@
 }
 ```
 
-### Nombre de joueurs qui ont partagé leur score : 
+### Récupérer les scores partagés : 
 **Méthode :** `GET`  
-**Route :**  `/sherlock/score-shared`  
+**Route :**  `/sherlock/scores`  
 **Donnée(s) retournée(s)** :  
 | Nom  | Type | Description |
 |:----|:----|:-----------|
-| scoreShared | int | Nombre de joueurs qui ont partagé leur score |
+| score | int | Valeur du score partagé |
+| sharedAt | date | Date du partage du score |
 
 **Exemple de réponse JSON :**
 ```json
 {
-  "scoreShared": 13,
+  {
+    "score": 30,
+    "sharedAt": (Date)
+  },
+  {
+    "score": 56,
+    "sharedAt": (Date)
+  },
+  ...
 }
 ```
 
@@ -209,7 +218,7 @@
 
 ### Ajouter un temps de lecture de pop-up : 
 **Méthode :** `POST`  
-**Route :**  `/sherlock/read-time`  
+**Route :**  `/sherlock/read-times`  
 **Attributs** :  
 | Nom  | Type | Description |
 |:----|:----|:-----------|
@@ -226,7 +235,7 @@
 
 ### Ajouter une nouvelle connexion à une page : 
 **Méthode :** `POST`  
-**Route :**  `/sherlock/pages-connections`  
+**Route :**  `/sherlock/connections/pages`  
 **Attributs** :  
 | Nom  | Type | Description |
 |:----|:----|:-----------|
@@ -273,16 +282,18 @@
 
 ### Ajouter un nouveau partage de score : 
 **Méthode :** `POST`  
-**Route :**  `/sherlock/score-shared`  
+**Route :**  `/sherlock/scores`  
 **Attributs** :  
 | Nom  | Type | Description |
 |:----|:----|:-----------|
 | score | int | Valeur du score partagé |
+| sharedAt | date | Date du partage du score |
 
 **Exemple de structure JSON :**
 ```json
 {
   "score": 42,
+  "sharedAt": (Date)
 }
 ```
 
