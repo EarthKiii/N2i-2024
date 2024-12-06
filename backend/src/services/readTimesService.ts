@@ -8,7 +8,11 @@ export class ReadTimesService {
     }
 
     public async getAllReadTimes(): Promise< { popupId: string, averageReadTime: number }[] > {
-        return this.readTimesRepository.getAllReadTimes();
+        const readTimes = await this.readTimesRepository.getAllReadTimes();
+        return readTimes.map(readTime => ({
+            popupId: readTime.popupId,
+            averageReadTime: readTime.averageReadTime
+        }));
     }
 
     public async getReadTime(popupId: string): Promise< { popupId: string, averageReadTime: number } > {
