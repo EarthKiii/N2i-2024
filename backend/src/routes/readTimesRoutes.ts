@@ -8,7 +8,7 @@ router.get('/read-times', async (req, res) => {
     await readTimesController.getAllReadTimes(req, res);
 });
 
-router.get('/read-times/{popupId}', async (req, res) => {
+router.get('/read-times/:popupId', async (req, res) => {
     await readTimesController.getReadTime(req, res);
 });
 

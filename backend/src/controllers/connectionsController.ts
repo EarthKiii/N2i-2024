@@ -57,7 +57,7 @@ export class ConnectionsController {
     public async postConnection(req: Request, res: Response): Promise<void> {
         try {
             const device_type = req.body.device_type;
-            const screen_width = req.body.device_name;
+            const screen_width = req.body.screen_width;
             const screen_height = req.body.screen_height;
             const connection_time = req.body.connection_time;
             const connection = await this.connectionsService.postConnection(device_type, screen_width, screen_height, connection_time);

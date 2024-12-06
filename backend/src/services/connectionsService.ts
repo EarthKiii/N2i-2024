@@ -19,11 +19,11 @@ export class ConnectionsService {
         return this.gameRepository.getPageConnections(pageId);
     }
 
-    public async postConnection(device_type: string, screen_width: number, screen_height: number, connection_time: Date): Promise<number> {
+    public async postConnection(device_type: string, screen_width: number, screen_height: number, connection_time: Date) {
         return this.gameRepository.postConnection(device_type, screen_width, screen_height, connection_time);
     }
 
-    public async postPageConnection(pageId: string, connectionTime: Date): Promise<number> {
+    public async postPageConnection(pageId: string, connectionTime: Date) {
         return this.gameRepository.postPageConnection(pageId, connectionTime);
     }
 }

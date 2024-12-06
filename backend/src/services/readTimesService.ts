@@ -15,7 +15,7 @@ export class ReadTimesService {
         return this.readTimesRepository.getReadTime(popupId);
     }
 
-    public async postReadTime(popupId: string, readTime: number): Promise<number> {
+    public async postReadTime(popupId: string, readTime: number) {
         return this.readTimesRepository.postReadTime(popupId, readTime);
     }
 }

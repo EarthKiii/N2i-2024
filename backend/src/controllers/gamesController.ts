@@ -17,7 +17,8 @@ export class GameController {
             res.status(200).json(games);
         } catch (error) {
             const err = error as Error;
-            res.status(500).json({ message: err.message });        }
+            res.status(500).json({ message: err.message });
+        }
     }
 
     /**
@@ -38,13 +39,14 @@ export class GameController {
      * Met à jour une partie.
      * @route PUT /sherlock/games/{gameId}
      * @param gameId - L'identifiant de la partie.
+     * @param gameTime - Le temps de jeu.
      */
     public async updateGame(req: Request, res: Response): Promise<void> {
         try {
             const gameId = parseInt(req.params.gameId, 10);
             const gameTime = req.body.gameTime;
             const game = await this.gamesService.updateGame(gameId, gameTime);
-            res.status(200).json(game);
+            res.status(201).json(game);
         } catch (error) {
             const err = error as Error;
             res.status(500).json({ message: err.message });        

@@ -1,12 +1,12 @@
 import { db } from '../utils/database.js';
 
 export class GamesRepository {
-    public async getAllGames(): Promise<{ game_id: number, game_time: number }> {
-        const result = await (await db).get('SELECT game_id, game_time FROM games');
-        return {
-            game_id: result?.game_id || 0,
-            game_time: result?.game_time
-        }
+    public async getAllGames(): Promise<{ game_id: number, game_time: number }[]> {
+        const result = await (await db).all('SELECT game_id, game_time FROM games');
+        return result.map((row: { game_id: number, game_time: number }) => ({
+            game_id: row.game_id,
+            game_time: row.game_time
+        }));
     }
 
     public async postGame(gameId: number) {

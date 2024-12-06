@@ -12,7 +12,7 @@ export class ScoresService {
             return { score: scores.score, date: scores.share_at };
         }
 
-    public async postScore(score: number): Promise<number> {
+    public async postScore(score: number) {
         return this.scoresRepository.postScore(score);
     }
 
