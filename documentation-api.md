@@ -167,15 +167,13 @@
 | deviceType | string | Type d'appareil |
 | screenWidth | int | Longueur de l'écran en pixels |
 | screenHeight | int | Hauteur de l'écran en pixels |
-| connectionTime | date | Heure de la connexion |
 
 **Exemple de structure JSON :**
 ```json
 {
   "deviceType": "PC",
   "screenWidth": 1080,
-  "screenHeight": 720,
-  "connectionTime": (Date)
+  "screenHeight": 720
 }
 ```
 
@@ -293,13 +291,11 @@
 | Nom  | Type | Description |
 |:----|:----|:-----------|
 | playerName | int | Nom du joueur |
-| date | date | Date d'obtention du 100% |
 
 **Exemple de structure JSON :**
 ```json
 {
   "playerName": "Evan",
-  "date": (Date)
 }
 ```
 
@@ -336,12 +332,10 @@
 | Nom  | Type | Description |
 |:----|:----|:-----------|
 | score | int | Valeur du score partagé |
-| sharedAt | date | Date du partage du score |
 
 **Exemple de structure JSON :**
 ```json
 {
   "score": 42,
-  "sharedAt": (Date)
 }
 ```
