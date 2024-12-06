@@ -19,6 +19,10 @@ app.use("/sherlock", pantheonRoutes);
 app.use("/sherlock", readTimesRoutes);
 app.use("/sherlock", scoresRoutes);
 
+app.use("/", (_req: express.Request, res: express.Response) => {
+    res.status(200).send("Welcome to the Sherlock API");
+});
+
 const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
