@@ -61,7 +61,7 @@ const Win = () => {
             {addLetter(letter)}
             <button onClick={(() => showName())}>Montrer le nom</button>
             <div id="name"></div>
-            <button onClick={() => postName()}>Entrer au <b>PANTHEON</b></button>
+            <div className="px-12 py-4 my-4 bg-blue-600 text-white text-center rounded-full hover:bg-blue-400 hover:scale-110 transition-all hover:shadow-mg" onClick={() => postName()}>Entrer au <b>PANTHEON</b></div>
         </div>
     </div>
 
