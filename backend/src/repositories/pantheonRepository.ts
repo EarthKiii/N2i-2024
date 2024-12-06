@@ -9,8 +9,8 @@ export class PantheonRepository {
         }));
     }
 
-    public async postPlayer(playerName: string, date: Date) {
-        const result = await (await db).run('INSERT INTO pantheon (player_name, date) VALUES (?, ?)', [playerName, date]);
+    public async postPlayer(playerName: string) {
+        const result = await (await db).run('INSERT INTO pantheon (player_name) VALUES (?)', [playerName]);
         return result.lastID;
     }
 }

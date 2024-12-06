@@ -29,11 +29,11 @@ export class ConnectionsService {
         return this.gameRepository.getPageConnections(pageId);
     }
 
-    public async postConnection(deviceType: string, screenWidth: number, screenHeight: number, connectionTime: Date) {
-        return this.gameRepository.postConnection(deviceType, screenWidth, screenHeight, connectionTime);
+    public async postConnection(deviceType: string, screenWidth: number, screenHeight: number) {
+        return this.gameRepository.postConnection(deviceType, screenWidth, screenHeight);
     }
 
-    public async postPageConnection(pageId: string, connectionTime: Date) {
-        return this.gameRepository.postPageConnection(pageId, connectionTime);
+    public async postPageConnection(pageId: string) {
+        return this.gameRepository.postPageConnection(pageId);
     }
 }
