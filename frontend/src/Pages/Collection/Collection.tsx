@@ -83,7 +83,7 @@ const Collection = () => {
             {cards.map((card: Card) => <div className={`shadow-lg size-44 bg-cover bg-center ${card.locked ? 'opacity-40' : ''}`} style={{ backgroundImage: `url(${card.src})` }} />)}
         </div>
 
-        {isCollectionFull && <Link to="/win"><div className="px-12 py-4 my-4 bg-blue-600 text-white text-center rounded-full hover:bg-blue-400 hover:scale-110 transition-all hover:shadow-mg">Unlock</div></Link>}
+        {isCollectionFull && <Link to="/win"><div className="px-12 py-4 my-4 bg-blue-600 text-white text-center rounded-full hover:bg-blue-400 hover:scale-110 transition-all hover:shadow-mg">Entrer au Panthéon</div></Link>}
     </div>
 }
 

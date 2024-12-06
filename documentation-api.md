@@ -196,7 +196,7 @@
     "numberOfConnections": 201
   },
   {
-    "pageId": "play",
+    "pageId": "game",
     "numberOfConnections": 172
   },
   {
