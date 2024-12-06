@@ -17,7 +17,9 @@ const CreditName = ({person, onHover}: {person: Person, onHover: Dispatch<SetSta
     return (
         <motion.div 
             whileHover="hover"
+            whileTap="hover"
             onHoverStart={() => onHover(person)}
+            onTouchStart={() => onHover(person)}
             initial="initial"
             className="creditName"
             variants={nameVariants}

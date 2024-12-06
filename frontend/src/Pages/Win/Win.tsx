@@ -10,7 +10,7 @@ function postName()
         headers.set('Content-type', 'application/json'),
         headers.set('Accept', 'application/json');
 
-        const request: RequestInfo= new Request('/sherlock/pantheon',{
+        const request: RequestInfo= new Request('http://localhost:3000/sherlock/pantheon',{
             method: 'POST',
             headers: headers,
             body: JSON.stringify({playerName: name})

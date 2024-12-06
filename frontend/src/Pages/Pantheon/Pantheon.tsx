@@ -9,12 +9,14 @@ interface Winner {
     date: EpochTimeStamp
 }
 
+const backHost = import.meta.env.VITE_FRONT_PORT|| "http://localhost:3000"
+
 const Pantheon = () => {
     const [winnersList, setWinnersList] = useState([] as Winner[]);
     useEffect(() => {
         async function fetchWinners() {
             try {
-              const response: AxiosResponse<Winner[]> = await axios.get('https://localhost:8000/sherlock/pantheon');
+              const response: AxiosResponse<Winner[]> = await axios.get(`${backHost}/sherlock/pantheon`);
               let data: Winner[] = await response.data;
               setWinnersList(data);
             } catch (error) {
@@ -25,33 +27,14 @@ const Pantheon = () => {
       
         fetchWinners();
       }, []);
-      const mockWinners = [
-        {
-            "playerName": "titusse",
-            "date": 1733442362
-          },
-          {
-            "playerName": "Obama2.0",
-            "date": 1733442362
-          },
-            {
-            "playerName": "EarthKii",
-            "date": 1733442362
-          },
-            {
-            "playerName": "Alaix",
-            "date": 1733442362
-          },
-            {
-            "playerName": "Dodo",
-            "date": 1733442362
-          },
-      ];
+
   return (
     <div className="pantheon">
-        {mockWinners.map(element => (<div className="test">
-            <PantheonName name={element.playerName} dateAdd={element.date}/>
-        </div>))}
+        {winnersList.map(element => (
+          <div className="test" key={element.id}>
+            <PantheonName name={element.playerName} dateAdd={new Date(element.date)}/>
+          </div>
+        ))}
         
     </div>
   )

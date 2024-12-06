@@ -14,11 +14,11 @@ const CreditBlob = ({person, onHover}: {person: Person, onHover: Dispatch<SetSta
         }, 1000)
     },[])
     return (
-        <div className="creditBlob" onMouseEnter={() => onHover(person)} onMouseLeave={() => onHover(null)}>
+        <div className="creditBlob" onMouseEnter={() => onHover(person)} onMouseLeave={() => onHover(null)} onTouchStart={() => onHover(person)} onTouchEnd={() => onHover(null)}>
             <motion.img src={blob4} className="blobBg" animate={blobPos} transition={{duration: 1, ease: "easeInOut"}}/>
             <div className="person">
                 <h1>{person.firstName}</h1>
-                <p>{person.quote}</p>
+                <p style={{opacity: "60%"}}>"{person.quote}"</p>
                 <br/>
                 <div className="links">
                     <a href={person.github}><FontAwesomeIcon icon={faGithub} color="white" size="3x"/></a>

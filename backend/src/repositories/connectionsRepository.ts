@@ -27,12 +27,13 @@ export class ConnectionsRepository {
         }
     }
 
-    public async postConnection(deviceType: string, screenWidth: number, screenHeight: number, connectionTime: Date) {
-        const result = await (await db).run('INSERT INTO connections (device_type, screen_width, screen_height, connection_time) VALUES (?, ?, ?, ?)', deviceType, screenWidth, screenHeight, connectionTime);
+    public async postConnection(deviceType: string, screenWidth: number, screenHeight: number) {
+        const result = await (await db).run('INSERT INTO connections (device_type, screen_width, screen_height) VALUES (?, ?, ?)', deviceType, screenWidth, screenHeight);
         return result.lastID || 0;
     }
 
-    public async postPageConnection(pageId: string, connectionTime: Date) {
+    public async postPageConnection(pageId: string) {
+        const connectionTime = new Date();
         const result = await (await db).run('INSERT INTO page_connections (page_id, connection_time) VALUES (?, ?)', pageId, connectionTime);
         return result.lastID;
     }
