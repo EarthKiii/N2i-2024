@@ -1,0 +1,16 @@
+.credits {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 670px) {
+    .credits {
+        flex-direction: column;
+    }
+}
+
+h1 {
+    font-size: 3em;
+    flex: 1;
+}
