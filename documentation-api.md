@@ -2,7 +2,7 @@
 
 ## /sherlock/games
 
-### Nombre de parties lancées/terminées : 
+### Récupérer toutes les parties : 
 **Méthode :** `GET`  
 **Route :**  `/sherlock/games`  
 **Donnée(s) retournée(s)** :  
@@ -30,7 +30,7 @@
 }
 ```
 
-### Ajouter une nouvelle partie lancée : 
+### Ajouter une nouvelle partie : 
 **Méthode :** `POST`  
 **Route :**  `/sherlock/games`  
 **Attributs** :  
@@ -62,14 +62,14 @@
 
 ## /sherlock/read-times
 
-### Moyenne du temps de lecture pour chaque pop-up d'information en partie :
+### Moyenne du temps de lecture pour chaque pop-up d'information :
 **Méthode :** `GET`  
 **Route :**  `/sherlock/read-times`  
 **Donnée(s) retournée(s)** :  
 | Nom  | Type | Description |
 |:----|:----|:-----------|
 | popupId | string | Identifiant de la pop-up d'information |
-| averageReadTime | int | Temps passé à consulter les informations de la pop-up en secondes PENDANT UNE PARTIE |
+| averageReadTime | int | Temps passé à consulter les informations de la pop-up en secondes |
 
 **Exemple de réponse JSON :**
 ```json
@@ -86,14 +86,14 @@
 }
 ```
 
-### Moyenne du temps de lecture d'une pop-up d'information particulière en partie :
+### Moyenne du temps de lecture d'une pop-up d'information particulière :
 **Méthode :** `GET`  
 **Route :**  `/sherlock/read-times/{popupId}`  
 **Donnée(s) retournée(s)** :  
 | Nom  | Type | Description |
 |:----|:----|:-----------|
 | popupId | string | Identifiant de la pop-up d'information |
-| averageReadTime | int | Temps passé à consulter les informations de la pop-up en secondes PENDANT UNE PARTIE |
+| averageReadTime | int | Temps passé à consulter les informations de la pop-up en secondes |
 
 **Exemple de réponse JSON :**
 ```json
@@ -110,7 +110,7 @@
 | Nom  | Type | Description |
 |:----|:----|:-----------|
 | popupId | string | Identifiant de la pop-up d'information |
-| readTime | int | Temps de lecture de la pop-up d'information PENDANT LA PARTIE |
+| readTime | int | Temps de lecture de la pop-up d'information |
 
 **Exemple de structure JSON :**
 ```json
