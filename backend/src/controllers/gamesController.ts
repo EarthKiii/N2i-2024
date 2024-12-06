@@ -37,7 +37,7 @@ export class GameController {
 
     /**
      * Met à jour une partie.
-     * @route PUT /sherlock/games/{gameId}
+     * @route PUT /sherlock/games/:gameId
      * @param gameId - L'identifiant de la partie.
      * @param gameTime - Le temps de jeu.
      */

@@ -7,20 +7,30 @@ export class ConnectionsService {
         this.gameRepository = new ConnectionsRepository();
     }
 
-    public async getAllConnections(): Promise< { device_type: string, screen_width: number, screen_height: number, connection_time: Date } > {
-        return this.gameRepository.getAllConnections();
+    public async getAllConnections(): Promise< { deviceType: string, screenWidth: number, screenHeight: number, connectionTime: Date }[] > {
+        const connections = await this.gameRepository.getAllConnections();
+        return connections.map(connection => ({
+            deviceType: connection.deviceType,
+            screenWidth: connection.screenWidth,
+            screenHeight: connection.screenHeight,
+            connectionTime: connection.connectionTime
+        }));
     }
 
-    public async getAllPagesConnections(): Promise< { pageId: string, number_of_connections: number } > {
-        return this.gameRepository.getAllPagesConnections();
+    public async getAllPagesConnections(): Promise< { pageId: string, numberOfConnections: number }[] > {
+        const pagesConnections = await this.gameRepository.getAllPagesConnections();
+        return pagesConnections.map(pageConnection => ({
+            pageId: pageConnection.pageId,
+            numberOfConnections: pageConnection.numberOfConnections
+        }));
     }
 
-    public async getPageConnections(pageId: string): Promise< { pageId: string, number_of_connections: number } > {
+    public async getPageConnections(pageId: string): Promise< { pageId: string, numberOfConnections: number } > {
         return this.gameRepository.getPageConnections(pageId);
     }
 
-    public async postConnection(device_type: string, screen_width: number, screen_height: number, connection_time: Date) {
-        return this.gameRepository.postConnection(device_type, screen_width, screen_height, connection_time);
+    public async postConnection(deviceType: string, screenWidth: number, screenHeight: number, connectionTime: Date) {
+        return this.gameRepository.postConnection(deviceType, screenWidth, screenHeight, connectionTime);
     }
 
     public async postPageConnection(pageId: string, connectionTime: Date) {

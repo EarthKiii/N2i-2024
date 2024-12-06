@@ -1,4 +1,4 @@
-import { ReadTimesRepository } from '../repositories/ReadTimesRepository.js';
+import { ReadTimesRepository } from '../repositories/readTimesRepository.js';
 
 export class ReadTimesService {
     private readonly readTimesRepository: ReadTimesRepository;
@@ -7,11 +7,15 @@ export class ReadTimesService {
         this.readTimesRepository = new ReadTimesRepository();
     }
 
-    public async getAllReadTimes(): Promise< { popup_id: string, average_read_time: number } > {
-        return this.readTimesRepository.getAllReadTimes();
+    public async getAllReadTimes(): Promise< { popupId: string, averageReadTime: number }[] > {
+        const readTimes = await this.readTimesRepository.getAllReadTimes();
+        return readTimes.map(readTime => ({
+            popupId: readTime.popupId,
+            averageReadTime: readTime.averageReadTime
+        }));
     }
 
-    public async getReadTime(popupId: string): Promise< { popup_id: string, average_read_time: number } > {
+    public async getReadTime(popupId: string): Promise< { popupId: string, averageReadTime: number } > {
         return this.readTimesRepository.getReadTime(popupId);
     }
 

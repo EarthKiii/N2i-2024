@@ -37,7 +37,7 @@ export class ConnectionsController {
 
     /**
      * Crée une nouvelle connexion de page spécifique.
-     * @route GET /sherlock/connections/pages/{pageId}
+     * @route GET /sherlock/connections/pages/:pageId
     */
    public async getPageConnections(req: Request, res: Response): Promise<void> {
     try {
@@ -56,11 +56,11 @@ export class ConnectionsController {
      */
     public async postConnection(req: Request, res: Response): Promise<void> {
         try {
-            const device_type = req.body.device_type;
-            const screen_width = req.body.screen_width;
-            const screen_height = req.body.screen_height;
-            const connection_time = req.body.connection_time;
-            const connection = await this.connectionsService.postConnection(device_type, screen_width, screen_height, connection_time);
+            const deviceType = req.body.deviceType;
+            const screenWidth = req.body.screenWidth;
+            const screenHeight = req.body.screenHeight;
+            const connectionTime = req.body.connectionTime;
+            const connection = await this.connectionsService.postConnection(deviceType, screenWidth, screenHeight, connectionTime);
             res.status(201).json(connection);
         } catch (error) {
             const err = error as Error;
