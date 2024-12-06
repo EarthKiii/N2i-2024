@@ -31,8 +31,7 @@ export class PantheonController {
     public async postPlayer(req: Request, res: Response): Promise<void> {
         try {
             const playerName = req.body.playerName;
-            const date = req.body.date;
-            const game = await this.pantheonService.postPlayer(playerName, date);
+            const game = await this.pantheonService.postPlayer(playerName);
             res.status(201).json(game);
         } catch (error) {
             const err = error as Error;
