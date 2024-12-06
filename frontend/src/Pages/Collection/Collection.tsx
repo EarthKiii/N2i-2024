@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import './Collection.css';
 
 import cardAlgae from "../../assets/cards/card_algae.webp";
@@ -19,6 +18,7 @@ import cardWhale from "../../assets/cards/card_whale.webp";
 import cardHumanTemp from "../../assets/cards/card_human_temp.webp";
 import cardWhiteCell from "../../assets/cards/card_white_cell.webp";
 import cardIntestines from "../../assets/cards/card_intestines.webp";
+import { useState } from 'react';
 import { Link } from 'react-router';
 
 interface Card {
