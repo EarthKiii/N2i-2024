@@ -66,15 +66,15 @@ const Game = () => {
     ];
 
     const pairs: {title:string, text:string}[] = [
-        {title: "Transport", text: "Transport tout ça"},
-        {title: "Filtre", text: "Filtre tout ça"},
-        {title: "JSP", text: "JSP tout ça"},
-        {title: "Respiration", text: "Respiration tout ça"},
-        {title: "Protection", text: "Protection tout ça"},
-        {title: "Flux", text: "Flux sanguin tout ça"},
-        {title: "Temperature", text: "Temperature tout ça"},
-        {title: "Biodiversité", text: "Biodiversité tout ça"},
-        {title: "Ecosysteme", text: "Ecosysteme tout ça"}
+        {title: "Transport", text: "Le sang et les baleines partagent un rôle crucial dans leurs systèmes respectifs : la circulation et le transport. Le sang parcourt le corps pour acheminer l’oxygène et les nutriments essentiels, tandis que les baleines, en migrant à travers les océans, dispersent les nutriments et favorisent la biodiversité marine. Tous deux sont des vecteurs de vie et d’équilibre."},
+        {title: "Filtre", text: "Les reins et les algues jouent un rôle essentiel de filtration et de régulation. Les reins purifient le sang en éliminant les déchets et en maintenant l’équilibre hydrique, tandis que les algues filtrent l’eau en absorbant le dioxyde de carbone et les nutriments, contribuant ainsi à la santé des écosystèmes marins. Tous deux sont des gardiens d’équilibre vital."},
+        {title: "Base", text: "Les vaisseaux sanguins et le plancton assurent la distribution essentielle à la vie. Les vaisseaux sanguins transportent l’oxygène et les nutriments à travers le corps, tandis que le plancton, en flottant dans les océans, diffuse l’énergie et nourrit la chaîne alimentaire marine. Tous deux sont des réseaux vitaux pour leurs écosystèmes respectifs."},
+        {title: "Respiration", text: "Les poumons et la photosynthèse jouent un rôle clé dans la gestion des gaz essentiels à la vie. Les poumons captent l’oxygène et expulsent le dioxyde de carbone, alimentant le corps en énergie. La photosynthèse, inversement, absorbe le dioxyde de carbone et libère l’oxygène, soutenant la vie sur Terre. Tous deux sont des moteurs d’échanges vitaux."},
+        {title: "Protection", text: "Les poils et les coraux partagent une fonction de protection et de soutien dans leurs systèmes respectifs. Les poils protègent la peau en la préservant des agressions extérieures, tandis que les coraux offrent un habitat et un refuge à de nombreuses espèces marines. Tous deux jouent un rôle de barrière protectrice pour leur environnement."},
+        {title: "Flux", text: "Le cœur et les courants marins peuvent être comparés car tous deux assurent une circulation essentielle. Le cœur pompe le sang pour nourrir et oxygéner le corps, tandis que les courants marins déplacent l’eau pour réguler le climat et distribuer les nutriments. Tous deux maintiennent l'équilibre et la vie dans leur système respectif."},
+        {title: "Temperature", text: "La température du corps humain et celle de l’océan sont des indicateurs cruciaux d’équilibre. Le corps maintient une température stable pour assurer le bon fonctionnement des organes, tandis que la température de l’océan régule le climat et la vie marine. Dans les deux cas, un déséquilibre peut perturber tout le système."},
+        {title: "Biodiversité", text: "Les globules blancs et la biodiversité marine jouent un rôle protecteur et régulateur. Les globules blancs défendent le corps contre les infections, tandis que la biodiversité marine stabilise les écosystèmes en soutenant les chaînes alimentaires et la résilience des océans. Tous deux sont essentiels à la santé et à l’équilibre de leur environnement respectif."},
+        {title: "Ecosysteme", text: "Le microbiote et la biodiversité sont des piliers de l’équilibre et de la résilience. Le microbiote, riche en micro-organismes, maintient la santé de l’organisme en favorisant la digestion et l’immunité. La biodiversité, en offrant une variété d’espèces, stabilise les écosystèmes et soutient la vie sur Terre. Tous deux illustrent l’importance de la diversité pour la survie."}
     ]
 
     const initGame = () => {
