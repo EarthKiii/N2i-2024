@@ -1,11 +1,11 @@
 import { db } from '../utils/database.js';
 
 export class GamesRepository {
-    public async getAllGames(): Promise<{ game_id: number, game_time: number }[]> {
+    public async getAllGames(): Promise<{ gameId: number, gameTime: number }[]> {
         const result = await (await db).all('SELECT * FROM games');
-        return result.map((row: { game_id: number, game_time: number }) => ({
-            game_id: row.game_id,
-            game_time: row.game_time
+        return result.map((row: { gameId: number, gameTime: number }) => ({
+            gameId: row.gameId,
+            gameTime: row.gameTime
         }));
     }
 

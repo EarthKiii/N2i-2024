@@ -19,13 +19,12 @@ export class ScoresController {
             const err = error as Error;
             res.status(500).json({ message: err.message });
         }
-
     }
 
     /**
      * Crée un nouveau score.
      * @route POST /sherlock/scores/
-     */
+    */
     public async postScore(req: Request, res: Response): Promise<void> {
         try {
             const score = await this.scoresService.postScore(req.body.score);

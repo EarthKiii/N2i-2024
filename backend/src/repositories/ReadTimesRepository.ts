@@ -1,19 +1,19 @@
 import { db } from '../utils/database.js';
 
 export class ReadTimesRepository {
-    public async getAllReadTimes(): Promise<{ popup_id: string, average_read_time: number }> {
+    public async getAllReadTimes(): Promise<{ popupId: string, averageReadTime: number }> {
         const result = await (await db).get('SELECT popup_id, AVG(read_time) AS average_read_time FROM read_times');
         return {
-            popup_id: result?.popup_id || "",
-            average_read_time: result?.average_read_time || 0
+            popupId: result?.popupId || "",
+            averageReadTime: result?.averageReadTime || 0
         }
     }
 
-    public async getReadTime(popupId: string): Promise<{ popup_id: string, average_read_time: number }> {
+    public async getReadTime(popupId: string): Promise<{ popupId: string, averageReadTime: number }> {
         const result = await (await db).get('SELECT popup_id, AVG(read_time) AS average_read_time FROM read_times WHERE popup_id = ?', [popupId]);
         return {
-            popup_id: result?.popup_id || "",
-            average_read_time: result?.average_read_time || 0
+            popupId: result?.popupId || "",
+            averageReadTime: result?.averageReadTime || 0
         }
     }
 

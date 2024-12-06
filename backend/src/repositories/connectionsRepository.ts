@@ -1,29 +1,29 @@
 import { db } from '../utils/database.js';
 
 export class ConnectionsRepository {
-    public async getAllConnections(): Promise<{ device_type: string, screen_width: number, screen_height: number, connection_time: Date }> {
+    public async getAllConnections(): Promise<{ deviceType: string, screenWidth: number, screenHeight: number, connectionTime: Date }> {
         const result = await (await db).get('SELECT * FROM connections');
         return {
-            device_type: result?.device_type || "",
-            screen_width: result?.screen_width || 0,
-            screen_height: result?.screen_height || 0,
-            connection_time: result?.connection_time
+            deviceType: result?.deviceType || "",
+            screenWidth: result?.screenWidth || 0,
+            screenHeight: result?.screenHeight || 0,
+            connectionTime: result?.connectionTime
         }
     }
 
-    public async getAllPagesConnections(): Promise<{ pageId: string, number_of_connections: number }> {
+    public async getAllPagesConnections(): Promise<{ pageId: string, numberOfConnections: number }> {
         const result = await (await db).get('SELECT page_id, COUNT(page_id) AS number_of_connections FROM page_connections');
         return {
             pageId: result?.page_id,
-            number_of_connections: result?.number_of_connections
+            numberOfConnections: result?.numberOfConnections
         }
     }
 
-    public async getPageConnections(pageId: string): Promise<{ pageId: string, number_of_connections: number }> {
+    public async getPageConnections(pageId: string): Promise<{ pageId: string, numberOfConnections: number }> {
         const result = await (await db).get('SELECT (pageId, COUNT(pageId)) AS number_of_connections FROM page_connections WHERE pageId = ?', pageId);
         return {
             pageId: result?.pageId || 0,
-            number_of_connections: result?.number_of_connections || 0
+            numberOfConnections: result?.numberOfConnections || 0
         }
     }
 
