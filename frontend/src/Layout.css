@@ -1,0 +1,54 @@
+.returnButton {
+    position: absolute;
+    top: 1.5vh;
+    left: 1.5vh;
+}
+
+#root {
+    position: relative;
+    background-color: ivory;
+    width: 100vw;
+    height: 100vh;
+    max-width: unset !important;
+    max-height: unset !important;
+}
+
+.blob1 {
+    position: absolute;
+    top: -15vw;
+    left: -15vw;
+}
+
+.blob2 {
+    position: absolute;
+    top: -25vw;
+    left: 0vw;
+}
+
+.blob3 {
+    position: absolute;
+    bottom: -25vw;
+    right: 5vw;
+}
+
+.blob4 {
+    position: absolute;
+    bottom: -15vw;
+    right: -15vw;
+}
+
+@keyframes rotate
+{
+     from   { transform: rotate(0deg); }
+     to   { transform: rotate(360deg); }
+
+}
+
+.rotating_div
+{
+    animation: rotate 40s infinite;
+}
+
+.reverse {
+    animation: rotate 40s infinite reverse;
+}

@@ -14,7 +14,7 @@ const Pantheon = () => {
     useEffect(() => {
         async function fetchWinners() {
             try {
-              const response: AxiosResponse<Winner[]> = await axios.get('https://api.example.com/users');
+              const response: AxiosResponse<Winner[]> = await axios.get('https://localhost:8000/sherlock/pantheon');
               let data: Winner[] = await response.data;
               setWinnersList(data);
             } catch (error) {
@@ -25,9 +25,31 @@ const Pantheon = () => {
       
         fetchWinners();
       }, []);
+      const mockWinners = [
+        {
+            "playerName": "titusse",
+            "date": 1733442362
+          },
+          {
+            "playerName": "Obama2.0",
+            "date": 1733442362
+          },
+            {
+            "playerName": "EarthKii",
+            "date": 1733442362
+          },
+            {
+            "playerName": "Alaix",
+            "date": 1733442362
+          },
+            {
+            "playerName": "Dodo",
+            "date": 1733442362
+          },
+      ];
   return (
     <div className="pantheon">
-        {winnersList.map(element => (<div className="test">
+        {mockWinners.map(element => (<div className="test">
             <PantheonName name={element.playerName} dateAdd={element.date}/>
         </div>))}
         
