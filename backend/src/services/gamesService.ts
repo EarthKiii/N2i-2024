@@ -1,10 +1,10 @@
-import { GameRepository } from '../repositories/GameRepository.js';
+import { GamesRepository } from '../repositories/GamesRepository.js';
 
-export class GameService {
-    private readonly gameRepository: GameRepository;
+export class GamesService {
+    private readonly gameRepository: GamesRepository;
 
     constructor() {
-        this.gameRepository = new GameRepository();
+        this.gameRepository = new GamesRepository();
     }
 
     public async getAllGames(): Promise<number> {

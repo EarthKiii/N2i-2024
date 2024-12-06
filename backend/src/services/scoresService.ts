@@ -11,8 +11,8 @@ export class ScoresService {
         return this.scoresRepository.getScores();
     }
 
-    public async postScore(scores: number): Promise<number> {
-        return this.scoresRepository.postScore();
+    public async postScore(score: number): Promise<number> {
+        return this.scoresRepository.postScore(score);
     }
 
 }

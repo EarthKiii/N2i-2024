@@ -1,6 +1,6 @@
 import { db } from '../utils/database.js';
 
-export class GameRepository {
+export class GamesRepository {
     public async getAllGames(): Promise<number> {
         const result = await db.get('SELECT COUNT(*) FROM games');
         return result?.count || 0;

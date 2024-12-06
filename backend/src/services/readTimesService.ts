@@ -1,0 +1,21 @@
+import { ReadTimesRepository } from '../repositories/ReadTimesRepository';
+
+export class ReadTimesService {
+    private readonly readTimesRepository: ReadTimesRepository;
+
+    constructor() {
+        this.readTimesRepository = new ReadTimesRepository();
+    }
+
+    public async getAllReadTimes(): Promise<number> {
+        return this.readTimesRepository.getAllReadTimes();
+    }
+
+    public async getReadTime(popupId: string): Promise<number> {
+        return this.readTimesRepository.getReadTime(popupId);
+    }
+
+    public async postReadTime(): Promise<number> {
+        return this.readTimesRepository.postReadTime();
+    }
+}

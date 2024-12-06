@@ -6,9 +6,8 @@ export class ScoresRepository {
         return result?.count || 0;
     }
 
-    public async postScore(): Promise<number> {
+    public async postScore(score: number): Promise<number> {
         const result = await db.run('INSERT INTO scores DEFAULT VALUES');
         return result.lastID;
     }
-
 }
