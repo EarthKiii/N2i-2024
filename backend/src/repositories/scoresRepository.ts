@@ -3,9 +3,9 @@ import { db } from '../utils/database.js';
 export class ScoresRepository {
     public async getScores(): Promise<{ score: number, sharedAt: Date }[]> {
         const result = await (await db).all('SELECT * FROM scores');
-        return result.map((row: { score: number, sharedAt: Date }) => ({
+        return result.map((row: { score: number, shared_at: Date }) => ({
             score: row.score,
-            sharedAt: row.sharedAt
+            sharedAt: row.shared_at
         }));
     }
 

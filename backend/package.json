@@ -4,14 +4,19 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "tsc -w & node dist/index.js",
-    "build": "tsc"
+    "dev": "tsc -w & babel src --out-dir dist/src --ignore '*.ts' --no-copy-ignored --copy-files --watch & node dist/index.js",
+    "build": "tsc && babel src --out-dir dist/src --ignore '*.ts' --no-copy-ignored --copy-files"
   },
   "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-typescript": "^7.26.0",
     "@types/express": "^5.0.0",
+    "karma-babel-preprocessor": "^8.0.2",
     "typescript": "~5.6.2"
   },
   "dependencies": {
+    "@babel/cli": "^7.26.4",
     "express": "^4.21.1",
     "sqlite": "^5.1.1",
     "sqlite3": "^5.1.7"

@@ -15,7 +15,7 @@ export class PantheonService {
         }));
     }
 
-    public async postPlayer(playerName: string, date: Date) {
-        return this.pantheonRepository.postPlayer(playerName, date);
+    public async postPlayer(playerName: string) {
+        return this.pantheonRepository.postPlayer(playerName);
     }
 }

@@ -5,6 +5,7 @@ const ExplainationPopup = ({title, text, onClose}: {title: string, text: string,
             <p className="my-3">{text}</p>
             <div className="bg-blue-600 text-white rounded-full py-2 mt-auto text-center" onClick={() => {onClose()}}>OK</div>
         </div>
+        {title == "Carte secrete" && <img src="https://cdn.pixabay.com/animation/2024/05/02/07/43/07-43-00-535_512.gif" alt="" className="absolute top-0 left-0 h-screen w-screen pointer-events-none -z-10" /> }  
     </div>
 }
 

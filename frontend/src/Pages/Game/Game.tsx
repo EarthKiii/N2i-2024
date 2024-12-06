@@ -20,9 +20,9 @@ import cardWhale from "../../assets/cards/card_whale.png";
 import cardHumanTemp from "../../assets/cards/card_human_temp.png";
 import cardWhiteCell from "../../assets/cards/card_white_cell.png";
 import cardIntestines from "../../assets/cards/card_intestines.png";
-// import cardLyreco from "../../assets/cards/card_lyreco.png";
+import cardLyreco from "../../assets/cards/card_lyreco.png";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 interface Card {
@@ -41,6 +41,10 @@ const Game = () => {
     const [explainedPair, setExplainedPair] = useState<number>(0);
     const [isWinPopupVisible, setIsWinPopupVisible] = useState<boolean>(false);
 
+    useEffect(() => {
+        initGame();
+    }, []);
+
     const cardsBody: Card[] = [
         { src: cardKetchup, pairIndex: 0, isFlipped: false, alt: "Card Ketchup" },
         { src: cardKidneys, pairIndex: 1, isFlipped: false, alt: "Card Kidneys" },
@@ -51,6 +55,7 @@ const Game = () => {
         { src: cardHumanTemp, pairIndex: 6, isFlipped: false, alt: "Card Human Temperature" },
         { src: cardWhiteCell, pairIndex: 7, isFlipped: false, alt: "Card White Cell" },
         { src: cardIntestines, pairIndex: 8, isFlipped: false, alt: "Card Intestines" },
+        { src: cardLyreco, pairIndex: 9, isFlipped: false, alt: "The Secret Card" },
     ];
 
     const cardsOcean: Card[] = [
@@ -63,9 +68,12 @@ const Game = () => {
         { src: cardSeaTemp, pairIndex: 6, isFlipped: false, alt: "Card Sea Temperature" },
         { src: cardBiodiversity, pairIndex: 7, isFlipped: false, alt: "Card Biodiversity" },
         { src: cardEcosystem, pairIndex: 8, isFlipped: false, alt: "Card Ecosystem" },
+        { src: cardLyreco, pairIndex: 9, isFlipped: false, alt: "The Secret Card" },
+
     ];
 
     const pairs: {title:string, text:string}[] = [
+<<<<<<< HEAD
         {title: "Transport", text: "Le sang et les baleines partagent un rôle crucial dans leurs systèmes respectifs : la circulation et le transport. Le sang parcourt le corps pour acheminer l’oxygène et les nutriments essentiels, tandis que les baleines, en migrant à travers les océans, dispersent les nutriments et favorisent la biodiversité marine. Tous deux sont des vecteurs de vie et d’équilibre."},
         {title: "Filtre", text: "Les reins et les algues jouent un rôle essentiel de filtration et de régulation. Les reins purifient le sang en éliminant les déchets et en maintenant l’équilibre hydrique, tandis que les algues filtrent l’eau en absorbant le dioxyde de carbone et les nutriments, contribuant ainsi à la santé des écosystèmes marins. Tous deux sont des gardiens d’équilibre vital."},
         {title: "Base", text: "Les vaisseaux sanguins et le plancton assurent la distribution essentielle à la vie. Les vaisseaux sanguins transportent l’oxygène et les nutriments à travers le corps, tandis que le plancton, en flottant dans les océans, diffuse l’énergie et nourrit la chaîne alimentaire marine. Tous deux sont des réseaux vitaux pour leurs écosystèmes respectifs."},
@@ -75,11 +83,22 @@ const Game = () => {
         {title: "Temperature", text: "La température du corps humain et celle de l’océan sont des indicateurs cruciaux d’équilibre. Le corps maintient une température stable pour assurer le bon fonctionnement des organes, tandis que la température de l’océan régule le climat et la vie marine. Dans les deux cas, un déséquilibre peut perturber tout le système."},
         {title: "Biodiversité", text: "Les globules blancs et la biodiversité marine jouent un rôle protecteur et régulateur. Les globules blancs défendent le corps contre les infections, tandis que la biodiversité marine stabilise les écosystèmes en soutenant les chaînes alimentaires et la résilience des océans. Tous deux sont essentiels à la santé et à l’équilibre de leur environnement respectif."},
         {title: "Ecosysteme", text: "Le microbiote et la biodiversité sont des piliers de l’équilibre et de la résilience. Le microbiote, riche en micro-organismes, maintient la santé de l’organisme en favorisant la digestion et l’immunité. La biodiversité, en offrant une variété d’espèces, stabilise les écosystèmes et soutient la vie sur Terre. Tous deux illustrent l’importance de la diversité pour la survie."}
+=======
+        {title: "Transport", text: "Transport tout ça"},
+        {title: "Filtre", text: "Filtre tout ça"},
+        {title: "JSP", text: "JSP tout ça"},
+        {title: "Respiration", text: "Respiration tout ça"},
+        {title: "Protection", text: "Protection tout ça"},
+        {title: "Flux", text: "Flux sanguin tout ça"},
+        {title: "Temperature", text: "Temperature tout ça"},
+        {title: "Biodiversité", text: "Biodiversité tout ça"},
+        {title: "Ecosysteme", text: "Ecosysteme tout ça"},
+        {title: "Carte secrete", text: "Mon dieu, vive lyreco, prenez donc ce stylo"},
+>>>>>>> 1ef5ec095cb7e1974d1027cf831dcf137cf2b340
     ]
 
     const initGame = () => {
-        console.log("== GAME START ==")
-        let selectedIndexes: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8].sort((_a: number, _b: number) => 0.5 - Math.random()).slice(0, 6);
+        let selectedIndexes: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].sort((_a: number, _b: number) => 0.5 - Math.random()).slice(0, 6);
         
         let selectedCards: Card[] = [];
 
@@ -143,7 +162,7 @@ const Game = () => {
 
 
     return <div className="flex justify-center items-center h-screen w-screen">
-        <button onClick={initGame}>start game</button>
+        {/* <button onClick={initGame}>start game</button> */}
 
         <div className="grid grid-cols-3 gap-4 z-10">
             {cards.map((card: Card, i: number) => <CardComponent image={card.src} key={i} onClick={() => {selectCard(card)}} isFlipped={card.isFlipped} />)}
