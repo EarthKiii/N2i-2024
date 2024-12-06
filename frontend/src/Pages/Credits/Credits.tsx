@@ -1,14 +1,15 @@
-import CreditName from "../../Components/CreditName/CreditName";
+import { useState } from "react";
+import CreditBlob from "../../Components/CreditBlob/CreditBlob";
+import CreditList from "../../Components/CreditList/CreditList";
 import './Credits.css'
+import { Person } from "../../Constants";
 
 const Credits = () => {
+  const [currPerson, setCurrPerson] = useState(null as Person|null);
   return (
     <div className="credits">
-      <CreditName firstName="Emmanuel" lastName="Bouldoires"/>
-      <CreditName firstName="Ivan" lastName="Bortnik"/>
-      <CreditName firstName="Dorian" lastName="Duprat"/>
-      <CreditName firstName="Alexis" lastName="Piekarz"/>
-      <CreditName firstName="Jonas" lastName="Charrier"/>
+      <CreditList setPerson={setCurrPerson}/>
+      {currPerson ? (<CreditBlob person={currPerson} onHover={setCurrPerson} />) : <span style={{flex: 2}}></span>}
     </div>
   )
 };

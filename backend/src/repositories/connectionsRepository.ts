@@ -2,7 +2,7 @@ import { db } from '../utils/database.js';
 
 export class ConnectionsRepository {
     public async getAllConnections(): Promise<{ device_type: string, screen_width: number, screen_height: number, connection_time: Date }> {
-        const result = await (await db).get('SELECT (device_type, screen_width, screen_height, connection_time) FROM connections');
+        const result = await (await db).get('SELECT * FROM connections');
         return {
             device_type: result?.device_type || "",
             screen_width: result?.screen_width || 0,
@@ -12,9 +12,9 @@ export class ConnectionsRepository {
     }
 
     public async getAllPagesConnections(): Promise<{ pageId: string, number_of_connections: number }> {
-        const result = await (await db).get('SELECT (pageId, COUNT(pageId)) AS number_of_connections FROM page_connections');
+        const result = await (await db).get('SELECT page_id, COUNT(page_id) AS number_of_connections FROM page_connections');
         return {
-            pageId: result?.pageId || 0,
+            pageId: result?.page_id,
             number_of_connections: result?.number_of_connections
         }
     }

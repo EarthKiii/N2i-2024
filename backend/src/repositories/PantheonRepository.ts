@@ -1,12 +1,12 @@
 import { db } from '../utils/database.js';
 
 export class PantheonRepository {
-    public async getPlayers(): Promise<{ player_name: string, date: Date }> {
-        const result = await (await db).get('SELECT player_name, date FROM pantheon');
-        return {
-            player_name: result?.player_name || "",
-            date: result?.date
-        }
+    public async getPlayers(): Promise<{ player_name: string, date: Date }[]> {
+        const result = await (await db).all('SELECT * FROM pantheon');
+        return result.map((row: { player_name: string, date: Date }) => ({
+            player_name: row.player_name,
+            date: row.date
+        }));
     }
 
     public async postPlayer(playerName: string, date: Date) {

@@ -1,4 +1,3 @@
-import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router'
 import Layout from './Layout'
 import Credits from './Pages/Credits/Credits'
