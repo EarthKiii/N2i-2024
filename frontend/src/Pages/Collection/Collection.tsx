@@ -1,25 +1,25 @@
 import { useState } from 'react';
 import './Collection.css';
 
-import cardAlgae from "../../assets/cards/card_algae.png";
-import cardKetchup from "../../assets/cards/card_ketchup.png";
-import cardBiodiversity from "../../assets/cards/card_biodiversity.png";
-import cardKidneys from "../../assets/cards/card_kidneys.png";
-import cardBloodCells from "../../assets/cards/card_blood_cells.png";
-import cardLungs from "../../assets/cards/card_lungs.png";
-import cardCoral from "../../assets/cards/card_coral.png";
-import cardEcosystem from "../../assets/cards/card_ecosystem.png";
-import cardPhotosynthesis from "../../assets/cards/card_photosynthesis.png";
-import cardFlow from "../../assets/cards/card_flow.png";
-import cardPlankton from "../../assets/cards/card_plankton.png";
-import cardHair from "../../assets/cards/card_hair.png";
-import cardSeaTemp from "../../assets/cards/card_sea_temp.png";
-import cardHearth from "../../assets/cards/card_hearth.png";
-import cardWhale from "../../assets/cards/card_whale.png";
-import cardHumanTemp from "../../assets/cards/card_human_temp.png";
-import cardWhiteCell from "../../assets/cards/card_white_cell.png";
-import cardIntestines from "../../assets/cards/card_intestines.png";
-import cardLyreco from "../../assets/cards/card_lyreco.png";
+import cardAlgae from "../../assets/cards/card_algae.webp";
+import cardKetchup from "../../assets/cards/card_ketchup.webp";
+import cardBiodiversity from "../../assets/cards/card_biodiversity.webp";
+import cardKidneys from "../../assets/cards/card_kidneys.webp";
+import cardBloodCells from "../../assets/cards/card_blood_cells.webp";
+import cardLungs from "../../assets/cards/card_lungs.webp";
+import cardCoral from "../../assets/cards/card_coral.webp";
+import cardEcosystem from "../../assets/cards/card_ecosystem.webp";
+import cardPhotosynthesis from "../../assets/cards/card_photosynthesis.webp";
+import cardFlow from "../../assets/cards/card_flow.webp";
+import cardPlankton from "../../assets/cards/card_plankton.webp";
+import cardHair from "../../assets/cards/card_hair.webp";
+import cardSeaTemp from "../../assets/cards/card_sea_temp.webp";
+import cardHearth from "../../assets/cards/card_hearth.webp";
+import cardWhale from "../../assets/cards/card_whale.webp";
+import cardHumanTemp from "../../assets/cards/card_human_temp.webp";
+import cardWhiteCell from "../../assets/cards/card_white_cell.webp";
+import cardIntestines from "../../assets/cards/card_intestines.webp";
+import cardLyreco from "../../assets/cards/card_lyreco.webp";
 
 interface Card {
     src: string,
