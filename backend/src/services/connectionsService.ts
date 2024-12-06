@@ -7,15 +7,15 @@ export class ConnectionsService {
         this.gameRepository = new ConnectionsRepository();
     }
 
-    public async getAllConnections(): Promise<number> {
+    public async getAllConnections(): Promise< { device_type: string, screen_width: number, screen_height: number, connection_time: Date | null } > {
         return this.gameRepository.getAllConnections();
     }
 
-    public async getAllPagesConnections(): Promise<number> {
+    public async getAllPagesConnections(): Promise< { pageId: number, number_of_connections: number } > {
         return this.gameRepository.getAllPagesConnections();
     }
 
-    public async getPageConnections(pageId: number): Promise<number> {
+    public async getPageConnections(pageId: number): Promise< { pageId: number, number_of_connections: number } > {
         return this.gameRepository.getPageConnections(pageId);
     }
 

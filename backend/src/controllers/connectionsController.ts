@@ -56,7 +56,11 @@ export class ConnectionsController {
      */
     public async postConnection(req: Request, res: Response): Promise<void> {
         try {
-            const connection = await this.connectionsService.postConnection(req.body);
+            const device_type = req.body.device_type;
+            const screen_width = req.body.device_name;
+            const screen_height = req.body.screen_height;
+            const connection_time = req.body.connection_time;
+            const connection = await this.connectionsService.postConnection(device_type, screen_width, screen_height, connection_time);
             res.status(201).json(connection);
         } catch (error) {
             const err = error as Error;
@@ -70,7 +74,9 @@ export class ConnectionsController {
      */
     public async postPageConnection(req: Request, res: Response): Promise<void> {
         try {
-            const connection = await this.connectionsService.postPageConnection(req.body);
+            const pageId = req.body.pageId;
+            const connectionTime = req.body.connectionTime;
+            const connection = await this.connectionsService.postPageConnection(pageId, connectionTime);
             res.status(201).json(connection);
         } catch (error) {
             const err = error as Error;

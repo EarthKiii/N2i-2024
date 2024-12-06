@@ -7,7 +7,7 @@ export class GamesService {
         this.gameRepository = new GamesRepository();
     }
 
-    public async getAllGames(): Promise<number> {
+    public async getAllGames(): Promise<{ game_id: number, game_time: number }> {
         return this.gameRepository.getAllGames();
     }
 

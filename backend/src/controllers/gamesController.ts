@@ -24,9 +24,9 @@ export class GameController {
      * Crée une nouvelle partie.
      * @route POST /sherlock/games/
      */
-    public async postGame(_req: Request, res: Response): Promise<void> {
+    public async postGame(req: Request, res: Response): Promise<void> {
         try {
-            const game = await this.gamesService.postGame();
+            const game = await this.gamesService.postGame(req.body.gameId);
             res.status(201).json(game);
         } catch (error) {
             const err = error as Error;
@@ -42,7 +42,8 @@ export class GameController {
     public async updateGame(req: Request, res: Response): Promise<void> {
         try {
             const gameId = req.params.gameId;
-            const game = await this.gamesService.updateGame(gameId);
+            const gameTime = req.body.gameTime;
+            const game = await this.gamesService.updateGame(gameId, gameTime);
             res.status(200).json(game);
         } catch (error) {
             const err = error as Error;

@@ -7,11 +7,11 @@ export class ReadTimesService {
         this.readTimesRepository = new ReadTimesRepository();
     }
 
-    public async getAllReadTimes(): Promise<number> {
+    public async getAllReadTimes(): Promise< { popup_id: string, average_read_time: number } > {
         return this.readTimesRepository.getAllReadTimes();
     }
 
-    public async getReadTime(popupId: string): Promise<number> {
+    public async getReadTime(popupId: string): Promise< { popup_id: string, average_read_time: number } > {
         return this.readTimesRepository.getReadTime(popupId);
     }
 

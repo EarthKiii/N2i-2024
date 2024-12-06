@@ -40,11 +40,15 @@ export class ReadTimesController {
     /**
      * Ajoute un temps de lecture d'une pop-up d'information.
      * @route POST /sherlock/read-times/
+     * @bodyParam popupId string
+     * @bodyParam readTime number
      */
-    public async postReadTime(_req: Request, res: Response): Promise<void> {
+    public async postReadTime(req: Request, res: Response): Promise<void> {
         try {
-            const readTime = await this.readTimesService.postReadTime();
-            res.status(201).json(readTime);
+            const popupId = req.body.popupId;
+            const readTime = req.body.readTime;
+            const payload = await this.readTimesService.postReadTime(popupId, readTime);
+            res.status(201).json(payload);
         } catch (error) {
             const err = error as Error;
             res.status(500).json({ message: err.message });

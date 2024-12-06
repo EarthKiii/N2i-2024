@@ -29,7 +29,7 @@ export class ScoresController {
      */
     public async postScore(req: Request, res: Response): Promise<void> {
         try {
-            const score = await this.scoresService.postScore(req.body);
+            const score = await this.scoresService.postScore(req.body.score);
             res.status(201).json(score);
         } catch (error) {
             const err = error as Error;
