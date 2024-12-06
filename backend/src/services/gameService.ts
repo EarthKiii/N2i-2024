@@ -1,4 +1,4 @@
-import { GameRepository } from '../repositories/GameRepository';
+import { GameRepository } from '../repositories/GameRepository.js';
 
 export class GameService {
     private readonly gameRepository: GameRepository;
