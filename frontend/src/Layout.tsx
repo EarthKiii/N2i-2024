@@ -16,20 +16,6 @@ const Layout = () => {
       <img src={blob4} className="blob4 reverse"/>
       
       <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/credits">Blogs</Link>
-          </li>
-          <li>
-            <Link to="/pantheon">Pantheon</Link>
-          </li>
-          <li>
-            <Link to="/win">Win</Link>
-          </li>
-        </ul>
         <Link to="/" className="returnButton"><FontAwesomeIcon icon={faArrowLeftLong} color="black" /></Link>
       </nav>
       <Outlet />

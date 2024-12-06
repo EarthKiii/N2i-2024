@@ -5,7 +5,7 @@ import bodyParser from "body-parser";
 import connectionRoutes from "./src/routes/connectionsRoutes.js";
 import gamesRoutes from "./src/routes/gamesRoutes.js";
 import pantheonRoutes from "./src/routes/pantheonRoutes.js";
-//import readTimesRoutes from "./src/routes/readTimesRoutes.js;
+import readTimesRoutes from "./src/routes/readTimesRoutes.js";
 import scoresRoutes from "./src/routes/scoresRoutes.js";
 
 const app = express();
@@ -13,11 +13,15 @@ const app = express();
 app.use(bodyParser.json());
 
 
-app.use("/sherlock/connections", connectionRoutes);
-app.use("/sherlock/games", gamesRoutes);
-app.use("/sherlock/pantheon", pantheonRoutes);
-//app.use("/sherlock/read-times", readTimesRoutes);
-app.use("/sherlock/scores", scoresRoutes);
+app.use("/sherlock", connectionRoutes);
+app.use("/sherlock", gamesRoutes);
+app.use("/sherlock", pantheonRoutes);
+app.use("/sherlock", readTimesRoutes);
+app.use("/sherlock", scoresRoutes);
+
+app.use("/", (_req: express.Request, res: express.Response) => {
+    res.status(200).send("Welcome to the Sherlock API");
+});
 
 const PORT = 3000;
 app.listen(PORT, () => {

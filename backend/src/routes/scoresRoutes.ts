@@ -4,11 +4,11 @@ import { ScoresController } from '../controllers/scoresController.js';
 const router = express.Router();
 const scoresController = new ScoresController();
 
-router.get('/', async (req, res) => {
-    await scoresController.getScores(req, res);
+router.get('/scores', async (req, res) => {
+    await scoresController.getAllScores(req, res);
 });
 
-router.post('/', async (req, res) => {
+router.post('/scores', async (req, res) => {
     await scoresController.postScore(req, res);
 });
 

@@ -1,7 +1,7 @@
-import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router'
 import Layout from './Layout'
 import Credits from './Pages/Credits/Credits'
+import Game from './Pages/Game/Game'
 import Pantheon from './Pages/Pantheon/Pantheon'
 import Win from './Pages/Win/Win'
 
@@ -12,6 +12,7 @@ const App = () => {
         <Route path="/" element={<Layout />}>
           <Route index element={<span />} />
           <Route path="credits" element={<Credits />} />
+          <Route path="game" element={<Game />} />
           <Route path="pantheon" element={<Pantheon />} />
           <Route path="win" element={<Win />} />
           <Route path="*" element={<h1>Y'a absolument rien ici</h1>} />
